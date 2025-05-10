@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+  color:#fff;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #0133e3;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+        }
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+            width: 310px
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 50px #2228e2;
+        }
+        .container table{
+         width: 100%;
+         font-size: 5px;
+         font-weight: bold;
+         text-align: center;
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 5px;
+        }
+        .container tbody{
+         font-size: 10px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container th {
+         font-size: 10px;
+         font-weight: bold;
+         text-align: center;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: center;
+        }
+        .aksi-buttons button {
+            background-color: #2228e2;
+            color: white;
+            border: none;
+            padding: 5px;
+            margin-right: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 5px;
+        }
+        button.reset {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+
+
+
+
+
+
+.riwayat-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.riwayat-judul {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background-color: #2228e2;
+  border-bottom: 1px solid #ccc;
+}
+
+.riwayat-table td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.riwayat-table td:first-child {
+  font-weight: bold;
+  width: 30%;
+}
+
+.riwayat-aksi {
+  text-align: center;
+}
+
+.riwayat-aksi button {
+  margin: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.reset {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+ 
+</style>
+
+
+
+
+<body>
+  <div class="main">
+    <h1>
+      DAFTAR RIWAYAT
+    </h1>
+    
+    
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+    <div class="foto-profil">
+      <a href="">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+  </div>
+
+  <div class="container" id="container-riwayat">
+    </div>
+</body>
+
+
+
+<script>
+function formatRupiah(amount) {
+  const formatted = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(amount);
+  return formatted.replace(/\.00$/, ',-');
+}
+
+function tampilkanRiwayat() {
+  const riwayatData = JSON.parse(localStorage.getItem('saldo-cash')) || [];
+  const containerRiwayat = document.getElementById('container-riwayat');
+  const totalUangCashElement = document.getElementById('total-uang-cash');
+  let totalTerakhir = 0;
+  containerRiwayat.innerHTML = ''; // Bersihkan isi container sebelum menampilkan
+
+  riwayatData.forEach((item, index) => {
+    const table = document.createElement('table');
+    const tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+    table.classList.add('riwayat-table'); // Tambahkan kelas untuk styling
+
+    // Hitung Total per item (tetap dihitung untuk ditampilkan di riwayat)
+    const totalItem = parseFloat(item.dompet || 0) +
+                      parseFloat(item.bca || 0) +
+                      parseFloat(item.danaDeni || 0) +
+                      parseFloat(item.spayAnis || 0) +
+                      parseFloat(item.lainya || 0);
+
+    // Baris Judul Total dan Waktu
+    const judulRow = tbody.insertRow();
+    const judulCell = judulRow.insertCell();
+    judulCell.colSpan = 2;
+    judulCell.classList.add('riwayat-judul');
+    judulCell.textContent = `Total: ${formatRupiah(totalItem)} - ${item.waktu}`;
+
+    const rowDompet = tbody.insertRow();
+    const dompetLabelCell = rowDompet.insertCell();
+    const dompetValueCell = rowDompet.insertCell();
+    dompetLabelCell.textContent = 'Dompet:';
+    dompetValueCell.textContent = formatRupiah(parseFloat(item.dompet || 0));
+
+    const rowBca = tbody.insertRow();
+    const bcaLabelCell = rowBca.insertCell();
+    const bcaValueCell = rowBca.insertCell();
+    bcaLabelCell.textContent = 'BCA:';
+    bcaValueCell.textContent = formatRupiah(parseFloat(item.bca || 0));
+
+    const rowDana = tbody.insertRow();
+    const danaLabelCell = rowDana.insertCell();
+    const danaValueCell = rowDana.insertCell();
+    danaLabelCell.textContent = 'DANA:';
+    danaValueCell.textContent = formatRupiah(parseFloat(item.danaDeni || 0));
+
+    const rowSpay = tbody.insertRow();
+    const spayLabelCell = rowSpay.insertCell();
+    const spayValueCell = rowSpay.insertCell();
+    spayLabelCell.textContent = 'Spay:';
+    spayValueCell.textContent = formatRupiah(parseFloat(item.spayAnis || 0));
+
+    const rowLainya = tbody.insertRow();
+    const lainyaLabelCell = rowLainya.insertCell();
+    const lainyaValueCell = rowLainya.insertCell();
+    lainyaLabelCell.textContent = 'Lainya:';
+    lainyaValueCell.textContent = formatRupiah(parseFloat(item.lainya || 0));
+
+    const rowAksi = tbody.insertRow();
+    const aksiCell = rowAksi.insertCell();
+    aksiCell.colSpan = 2;
+    aksiCell.classList.add('riwayat-aksi');
+
+    // Tombol Edit
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    editButton.onclick = function() {
+      editRiwayatItem(index);
+    };
+    aksiCell.appendChild(editButton);
+
+    // Tombol Hapus
+    const hapusButton = document.createElement('button');
+    hapusButton.textContent = 'Hapus';
+    hapusButton.onclick = function() {
+      hapusRiwayatItem(index);
+    };
+    aksiCell.appendChild(hapusButton);
+
+    containerRiwayat.appendChild(table);
+  });
+
+  // Hitung total dari item terakhir jika ada
+  if (riwayatData.length > 0) {
+    const itemTerakhir = riwayatData[riwayatData.length - 1];
+    totalTerakhir = parseFloat(itemTerakhir.dompet || 0) +
+                    parseFloat(itemTerakhir.bca || 0) +
+                    parseFloat(itemTerakhir.danaDeni || 0) +
+                    parseFloat(itemTerakhir.spayAnis || 0) +
+                    parseFloat(itemTerakhir.lainya || 0);
+  }
+
+  // Simpan total terakhir ke localStorage
+  localStorage.setItem('total-uang', totalTerakhir.toString());
+
+  // Perbarui tampilan total uang cash
+  if (totalUangCashElement) {
+    totalUangCashElement.textContent = formatRupiah(totalTerakhir);
+  }
+
+  // Tambahkan tombol RESET setelah semua tabel ditampilkan
+  const resetButton = document.createElement('button');
+  resetButton.classList.add('reset');
+  resetButton.textContent = 'RESET';
+  resetButton.onclick = resetRiwayat;
+  containerRiwayat.appendChild(resetButton);
+}
+
+function editRiwayatItem(index) {
+  const riwayatData = JSON.parse(localStorage.getItem('saldo-cash')) || [];
+  const itemToEdit = riwayatData[index];
+
+  const dompetBaru = prompt("Edit Dompet:", itemToEdit.dompet);
+  const bcaBaru = prompt("Edit BCA:", itemToEdit.bca);
+  const danaDeniBaru = prompt("Edit DANA:", itemToEdit.danaDeni);
+  const spayAnisBaru = prompt("Edit Spay:", itemToEdit.spayAnis);
+  const lainyaBaru = prompt("Edit Lainya:", itemToEdit.lainya);
+
+  if (dompetBaru !== null && bcaBaru !== null && danaDeniBaru !== null && spayAnisBaru !== null && lainyaBaru !== null) {
+    riwayatData[index] = {
+      dompet: dompetBaru,
+      bca: bcaBaru,
+      danaDeni: danaDeniBaru,
+      spayAnis: spayAnisBaru,
+      lainya: lainyaBaru,
+      waktu: itemToEdit.waktu // Waktu tidak diedit
+    };
+    localStorage.setItem('saldo-cash', JSON.stringify(riwayatData));
+    tampilkanRiwayat(); // Refresh tampilan riwayat dan total terakhir
+  }
+}
+
+function hapusRiwayatItem(index) {
+  const riwayatData = JSON.parse(localStorage.getItem('saldo-cash')) || [];
+  if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+    riwayatData.splice(index, 1); // Hapus 1 item pada indeks tertentu
+    localStorage.setItem('saldo-cash', JSON.stringify(riwayatData));
+    tampilkanRiwayat(); // Refresh tampilan riwayat dan total terakhir
+  }
+}
+
+function resetRiwayat() {
+  if (confirm('Apakah Anda yakin ingin menghapus seluruh riwayat?')) {
+    localStorage.removeItem('saldo-cash');
+    localStorage.removeItem('total-uang'); // Hapus juga total uang dari localStorage
+    const totalUangCashElement = document.getElementById('total-uang-cash');
+    if (totalUangCashElement) {
+      totalUangCashElement.textContent = formatRupiah(0); // Reset tampilan total
+    }
+    tampilkanRiwayat(); // Kosongkan tampilan riwayat
+  }
+}
+
+// Fungsi untuk memuat total uang dari localStorage saat halaman dimuat
+function muatTotalUang() {
+  const totalUang = localStorage.getItem('total-uang');
+  const totalUangCashElement = document.getElementById('total-uang-cash');
+  if (totalUangCashElement && totalUang) {
+    totalUangCashElement.textContent = formatRupiah(parseFloat(totalUang) || 0);
+  }
+}
+
+// Panggil fungsi untuk memuat total uang saat halaman dimuat
+muatTotalUang();
+tampilkanRiwayat(); // Panggil saat halaman dimuat
+
+</script>
+
+</html>
+

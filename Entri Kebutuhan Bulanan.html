@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #0133e3;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+.menu{
+ border: 1px solid #ccc;
+  margin-top:10px;
+  width: 310px
+  height: 370px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 50px #026f29
+}
+.menu h4{
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.container p{
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  margin:7px;
+}
+.container input{
+  margin-left:20px;
+  
+  width:260px;
+  height: 15px;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 10px 10px 10px 10px;
+  color:#fff;
+  font-size: 7px;
+}
+.container select{
+  margin-left:20px;
+  
+  width:286.5px;
+  height: 42.5px;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 10px 10px 10px 10px;
+  color:#fff;
+  font-size: 7px;
+}
+.container
+.submit{
+  height: 30px;
+  width: 100%;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 12px;
+  color:#000;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+
+.Reset
+.reset{
+ color:#fff;
+}
+ 
+</style>
+
+
+
+
+
+
+
+
+<body>
+  <div class="main">
+    <h1>
+      KEBUTUHAN BULANAN
+    </h1>
+    
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+    
+    <div class="foto-profil">
+      <a href="Menu Kebutuhan Bulanan.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+  </div>
+  
+  
+  <div class="menu">
+   <h4>ENTRI DISINI</h4>
+   <div class="container">
+    
+   <p><label for="status">Status</label>
+    <select type="text" id="status"><br>
+     <option value="" disabled selected>Pilih Jenis Transaksi</option>
+     <option value="Sudah">Sudah</option>
+     <option value="Belom">Belom</option>
+    </select>
+   </p>
+   
+   
+   <p><label for="id">Id</label>
+    <select type="text" id="id"><br>
+     <option value="" disabled selected>Pilih Id</option>
+     <option value="1">*1 CICILAN BULANAN</option>
+     <option value="2">*2 JATAH BULANAN</option>
+     <option value="3">*3 KEBUTUHAN RUMAH</option>
+     <option value="4">*4 KEBUTUHAN YASMINE</option>
+     <option value="5">*5 KEBUTUHAN YASMIME (susu-pempes)</option>
+     <option value="6">*6 KEBUTUHAN MONTOR</option>
+    </select>
+   </p>
+   
+   <p><label for="nama">Nama</label>
+    <input type="text" id="nama"><br>
+   </p>
+   
+   
+   <p><label for="nominal">Nominal</label>
+    <input type="number" id="nominal"><br>
+   </p>
+   
+   
+   <button class="submit" id="cicilan-bulanan" onclick="tambahKebutuhan()">SUBMIT</button>
+  </div>
+</body>
+
+
+
+
+
+
+
+<script>
+ function getQueryParam(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+ }
+
+ document.addEventListener('DOMContentLoaded', function() {
+  const isEdit = getQueryParam('edit') === 'true';
+  const idEdit = getQueryParam('id');
+  const namaEdit = getQueryParam('nama');
+  const statusEdit = getQueryParam('status');
+  const nominalEdit = getQueryParam('nominal');
+
+  console.log("DOMContentLoaded dijalankan.");
+  console.log("Parameter URL:");
+  console.log("  edit:", isEdit);
+  console.log("  id:", idEdit);
+  console.log("  nama:", namaEdit);
+  console.log("  status:", statusEdit);
+  console.log("  nominal:", nominalEdit);
+
+  if (isEdit && idEdit && namaEdit && statusEdit && nominalEdit) {
+   console.log("Mode Edit terdeteksi.");
+   document.getElementById("id").value = idEdit;
+   document.getElementById("nama").value = namaEdit;
+   document.getElementById("status").value = statusEdit;
+   document.getElementById("nominal").value = nominalEdit;
+   document.getElementById("id").dataset.editId = idEdit;
+   document.getElementById("nama").dataset.editNama = namaEdit;
+   document.querySelector(".submit").textContent = "Simpan Perubahan";
+   console.log("Data untuk edit diisi ke formulir.");
+  } else {
+   console.log("Mode Tambah terdeteksi.");
+   delete document.getElementById("id").dataset.editId;
+   delete document.getElementById("nama").dataset.editNama;
+   document.querySelector(".submit").textContent = "SUBMIT";
+   console.log("Atribut dataset edit dihapus.");
+  }
+ });
+
+ function tambahKebutuhan() {
+  console.log("Fungsi tambahKebutuhan dijalankan.");
+  const id = document.getElementById("id").value;
+  const nama = document.getElementById("nama").value;
+  const status = document.getElementById("status").value;
+  const nominal = document.getElementById("nominal").value;
+
+  console.log("Nilai input formulir:");
+  console.log("  ID:", id);
+  console.log("  Nama:", nama);
+  console.log("  Status:", status);
+  console.log("  Nominal:", nominal);
+
+  if (id && nama && status && nominal) {
+   const kebutuhan = {
+    id: id,
+    nama: nama,
+    status: status,
+    nominal: nominal
+   };
+   console.log("Objek kebutuhan yang akan disimpan/diperbarui:", kebutuhan);
+
+   const storedKebutuhan = localStorage.getItem("kebutuhanBulanan");
+   let kebutuhanBulanan = storedKebutuhan ? JSON.parse(storedKebutuhan) : [];
+   console.log("Data kebutuhanBulanan dari localStorage:", kebutuhanBulanan);
+
+   const editId = document.getElementById("id").dataset.editId;
+   const editNama = document.getElementById("nama").dataset.editNama;
+   console.log("Nilai dataset editId:", editId);
+   console.log("Nilai dataset editNama:", editNama);
+
+   if (editId && editNama) {
+    console.log("Mode Edit: Mencari dan memperbarui item.");
+    const indexToUpdate = kebutuhanBulanan.findIndex(item =>
+     item.id === editId && item.nama === editNama
+    );
+    console.log("Indeks item yang akan diperbarui:", indexToUpdate);
+    if (indexToUpdate !== -1) {
+     console.log("Item ditemukan, melakukan pembaruan.");
+     kebutuhanBulanan[indexToUpdate] = kebutuhan;
+     alert("Data kebutuhan berhasil diperbarui!");
+    } else {
+     console.warn("Item dengan ID:", editId, "dan Nama:", editNama, "tidak ditemukan untuk diedit.");
+     alert("Error: Data yang akan diedit tidak ditemukan!");
+    }
+   } else {
+    console.log("Mode Tambah: Menambahkan item baru.");
+    kebutuhanBulanan.push(kebutuhan);
+    alert("Data kebutuhan berhasil ditambahkan!");
+   }
+
+   localStorage.setItem("kebutuhanBulanan", JSON.stringify(kebutuhanBulanan));
+   console.log("Data kebutuhanBulanan setelah disimpan:", JSON.parse(localStorage.getItem("kebutuhanBulanan")));
+
+   console.log("Melakukan redirect ke Belum Kebutuhan Bulanan.html");
+   window.location.href = "Belum Kebutuhan Bulanan.html";
+
+  } else {
+   console.warn("Harap isi semua kolom!");
+   alert("Harap isi semua kolom!");
+  }
+ }
+</script>
+
+
+
+
+</html>
+
+

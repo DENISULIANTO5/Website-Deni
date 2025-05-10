@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #001efabe;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+.TOTAL{
+ border: 1px solid #ccc;
+  margin-top:10px;
+  width:310px
+  height: 100px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 50px #9c0101;
+}
+.TOTAL h3{
+  color: #fff;
+  font-size: 7px;
+  margin-top:10pxpx;
+}
+.TOTAL span{
+ margin-top:5px;
+ font-size: 40px;
+ color: #fff;
+ font-weight: bold;
+}
+
+
+
+.menu{
+ border: 1px solid #ccc;
+  margin-top:10px;
+  width: 310px
+  height: 370px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 50px #9c0101
+}
+.menu h4{
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.container p{
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  margin:7px;
+}
+.container input{
+  margin-left:20px;
+  
+  width:260px;
+  height: 15px;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 10px 10px 10px 10px;
+  color:#fff;
+  font-size: 7px;
+}
+.container select{
+  margin-left:20px;
+  
+  width:286.5px;
+  height: 42.5px;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 10px 10px 10px 10px;
+  color:#fff;
+  font-size: 7px;
+}
+.container
+.submit{
+  height: 30px;
+  width: 100%;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 12px;
+  color:#000;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.Reset
+.reset{
+ color:#fff;
+ 
+}
+ 
+</style>
+
+
+
+
+
+<body>
+  <div class="main">
+
+    <h1>
+      MODAL KEBUTUHAN
+    </h1>
+
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+
+    <div class="foto-profil">
+      <a href="Menu-Pilihan-Modal-Kebutuhan.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+
+  </div>
+
+
+  <div class="TOTAL">
+    <h3>Total Uang Dipinjam</h3>
+    <span id="total-nominal-dipinjam">0</span>
+  </div>
+
+
+  <div class="menu">
+    <h4>ENTRI DISINI</h4>
+    <div class="container">
+
+      <p><label for="jenis-transaksi">Jenis Transaksi</label></p>
+      <select id="jenis-transaksi">
+        <option disabled selected>Pilih Jenis Transaksi</option>
+        <option value="Barang Masuk">Barang Masuk</option>
+        <option value="Barang Keluar">Barang Keluar</option>
+        </select>
+
+      <p><label for="nama-barang">Nama Barang</label></p>
+      <input type="text" id="nama-barang">
+
+      <p><label for="tanggal">Tanggal</label></p>
+      <input type="date" id="tanggal"><br>
+
+      <p><label for="nominal">Nominal</label></p>
+     <input type="number" id="nominal">
+
+      </i> <button class="submit" id="simpanButton" onclick="tambahData()">
+        SUBMIT</button>
+    </div>
+  </div>
+</body>
+
+
+
+
+
+  <script>
+   
+    const modalKebutuhan = localStorage.getItem('modalKebutuhan') ? JSON.parse(localStorage.getItem('modalKebutuhan')) : [];
+    const totalNominalDipinjamSpan = document.getElementById('total-nominal-dipinjam');
+    const namaBarangInput = document.getElementById('nama-barang');
+    const tanggalInput = document.getElementById('tanggal');
+    const jenisTransaksiSelect = document.getElementById('jenis-transaksi');
+    const nominalInput = document.getElementById('nominal');
+    let editingIndex = null;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const isEdit = urlParams.get('edit') === 'true' || urlParams.get('editKeluar') === 'true';
+      if (isEdit) {
+        loadDataForEdit();
+      }
+      hitungTotalNominalDipinjam();
+    });
+
+    function hitungTotalNominalDipinjam() {
+      const total = modalKebutuhan.reduce((sum, item) => {
+        return item.jenisTransaksi === 'Barang Masuk' ? sum + parseFloat(item.nominal) : sum;
+      }, 0);
+
+      totalNominalDipinjamSpan.textContent = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(total) + ',-';
+    }
+
+    function simpanData() {
+      localStorage.setItem('modalKebutuhan', JSON.stringify(modalKebutuhan));
+      hitungTotalNominalDipinjam();
+    }
+
+
+
+
+
+
+    function loadDataForEdit() {
+  const editIndex = localStorage.getItem('editIndex') || localStorage.getItem('editIndexKeluar');
+  const editDataString = localStorage.getItem('editData') || localStorage.getItem('editDataKeluar');
+
+  if (editIndex !== null && editDataString) {
+    const editData = JSON.parse(editDataString);
+    editingIndex = parseInt(editIndex);
+
+    namaBarangInput.value = editData.namaBarang;
+    tanggalInput.value = editData.tanggal;
+    jenisTransaksiSelect.value = editData.jenisTransaksi;
+    nominalInput.value = editData.nominal;
+    jenisTransaksiSelect.disabled = false; // Pastikan tidak disabled saat edit
+
+    const simpanButton = document.getElementById('simpanButton');
+    if (simpanButton) {
+      simpanButton.textContent = 'Update';
+    }
+  }
+}
+
+
+    function tambahData() {
+      const namaBarang = namaBarangInput.value.trim();
+      const tanggal = tanggalInput.value;
+      const jenisTransaksi = jenisTransaksiSelect.value;
+      const nominalValue = parseFloat(nominalInput.value);
+
+      if (!namaBarang) {
+        alert("Nama Barang harus diisi.");
+        return;
+      }
+      if (!tanggal) {
+        alert("Tanggal harus diisi.");
+        return;
+      }
+      if (jenisTransaksi === "Pilih Jenis Transaksi") {
+        alert("Jenis Transaksi harus dipilih.");
+        return;
+      }
+      if (isNaN(nominalValue)) {
+        alert("Nominal harus berupa angka yang valid.");
+        return;
+      }
+
+      const newData = { namaBarang, tanggal, jenisTransaksi, nominal: nominalValue };
+
+      if (editingIndex !== null) {
+        modalKebutuhan[editingIndex] = newData;
+        editingIndex = null;
+        localStorage.removeItem('editIndex');
+        localStorage.removeItem('editData');
+        localStorage.removeItem('editIndexKeluar');
+        localStorage.removeItem('editDataKeluar');
+        jenisTransaksiSelect.disabled = false;
+        document.getElementById('simpanButton').textContent = 'SUBMIT';
+      } else {
+        modalKebutuhan.push(newData);
+      }
+
+      simpanData();
+      resetInputForm();
+      window.location.href = jenisTransaksi === 'Barang Masuk' ? 'Rincian Entri Modal Kebutuhan.html' : (jenisTransaksi === 'Barang Keluar' ? 'Rincian Barang Keluar.html' : window.location.href);
+    }
+
+    function resetInputForm() {
+      namaBarangInput.value = '';
+      tanggalInput.value = '';
+      jenisTransaksiSelect.value = 'Pilih Jenis Transaksi';
+      nominalInput.value = '';
+    }
+  </script>
+
+
+</html>
+
+
+
+

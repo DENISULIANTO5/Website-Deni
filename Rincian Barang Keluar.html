@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+  color:#fff;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #0133e3;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+        }
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+            width: 310px
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 50px #9c0101
+        }
+        .container p{
+         font-size: 15px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container h1{
+         font-size: 20px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container table{
+         width: 100%;
+         font-size: 5px;
+         font-weight: bold;
+         text-align: center;
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 20px;
+        }
+        .container tbody{
+         font-size: 5px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container th {
+         font-size: 10px;
+         font-weight: bold;
+         text-align: center;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: center;
+        }
+        .aksi-buttons button {
+            background-color: #2228e2;
+            color: white;
+            border: none;
+            padding: 5px;
+            margin-right: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 5px;
+        }
+        button.reset {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+ 
+</style>
+
+
+
+
+
+
+<body>
+  <div class="main">
+
+    <h1>
+      RINCIAN BARANG KELUAR
+    </h1>
+
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+    <div class="foto-profil">
+      <a href="Rincian Entri Modal Kebutuhan.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <h1>DAFTAR Barang Keluar</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama Barang</th>
+          <th>Tanggal</th>
+          <th>Nominal</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="daftar-barang-keluar">
+      </tbody>
+    </table>
+    <button class="reset" onclick="resetBarangKeluar()">RESET DATA BARANG KELUAR</button>
+  </div>
+
+</body>
+
+
+
+
+<script>
+  let modalKebutuhan = localStorage.getItem('modalKebutuhan') ? JSON.parse(localStorage.getItem('modalKebutuhan')) : [];
+  const daftarTransaksiBody = document.getElementById('daftar-barang-keluar');
+
+  function numberToRupiah(number) {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(number);
+  }
+
+  function updateDaftarTransaksiKeluar() {
+    daftarTransaksiBody.innerHTML = '';
+    modalKebutuhan.forEach((item, index) => {
+      if (item.jenisTransaksi === 'Barang Keluar') {
+        const row = daftarTransaksiBody.insertRow();
+        const namaBarangCell = row.insertCell(0);
+        const tanggalCell = row.insertCell(1);
+        const nominalCell = row.insertCell(2);
+        const aksiCell = row.insertCell(3);
+        aksiCell.classList.add('aksi-buttons');
+
+        namaBarangCell.textContent = item.namaBarang;
+        tanggalCell.textContent = item.tanggal;
+        nominalCell.textContent = numberToRupiah(parseFloat(item.nominal));
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.onclick = () => editTransaksiKeluar(index); // Fungsi edit untuk barang keluar
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Hapus';
+        deleteButton.onclick = () => hapusTransaksiKeluar(index); // Fungsi hapus untuk barang keluar
+
+        aksiCell.appendChild(editButton);
+        aksiCell.appendChild(deleteButton);
+      }
+    });
+    hitungTotalNominalKeluar();
+  }
+
+  function editTransaksiKeluar(index) {
+    const dataToEdit = modalKebutuhan[index];
+    localStorage.setItem('editIndexKeluar', index); // Key berbeda untuk edit barang keluar
+    localStorage.setItem('editDataKeluar', JSON.stringify(dataToEdit)); // Key berbeda untuk data edit barang keluar
+    window.location.href = 'Modal Kebutuhan.html?editKeluar=true'; // Parameter edit berbeda
+  }
+
+  function hapusTransaksiKeluar(index) {
+    const namaBarang = modalKebutuhan[index].namaBarang;
+    if (confirm(`Apakah Anda yakin ingin menghapus transaksi "${namaBarang}"?`)) {
+      modalKebutuhan.splice(index, 1);
+      localStorage.setItem('modalKebutuhan', JSON.stringify(modalKebutuhan));
+      updateDaftarTransaksiKeluar();
+    }
+  }
+
+  function resetBarangKeluar() {
+    if (confirm("Apakah Anda yakin ingin mereset seluruh data Barang Keluar?")) {
+      modalKebutuhan = modalKebutuhan.filter(item => item.jenisTransaksi !== 'Barang Keluar');
+      localStorage.setItem('modalKebutuhan', JSON.stringify(modalKebutuhan));
+      localStorage.removeItem('editIndexKeluar');
+      localStorage.removeItem('editDataKeluar');
+      updateDaftarTransaksiKeluar();
+    }
+  }
+
+  updateDaftarTransaksiKeluar();  function editTransaksiKeluar(index) {
+    const dataToEdit = modalKebutuhan[index];
+    localStorage.setItem('editIndexKeluar', index); // Key berbeda untuk edit barang keluar
+    localStorage.setItem('editDataKeluar', JSON.stringify(dataToEdit)); // Key berbeda untuk data edit barang keluar
+    window.location.href = 'Modal Kebutuhan.html?editKeluar=true'; // Parameter edit berbeda
+  }
+
+</script>
+</html>

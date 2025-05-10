@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+  color:#fff;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #0133e3;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main h2{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 37px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+        }
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+            width: 310px
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 50px #9c0101
+        }
+        .container p{
+         font-size: 15px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container h1{
+         font-size: 20px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container table{
+         width: 100%;
+         font-size: 5px;
+         font-weight: bold;
+         text-align: center;
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 20px;
+        }
+        .container tbody{
+         font-size: 5px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container th {
+         font-size: 10px;
+         font-weight: bold;
+         text-align: center;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: center;
+        }
+        .aksi-buttons button {
+            background-color: #2228e2;
+            color: white;
+            border: none;
+            padding: 5px;
+            margin-right: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 5px;
+        }
+        button.reset {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+ 
+</style>
+
+
+
+
+<body>
+  <div class="main">
+
+    <h1>
+      PINJAM
+    </h1>
+    <h2>
+      MINUS KEBUTUHAN
+    </h2>
+
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+    <div class="foto-profil">
+      <a href="Rincian Entri Modal Kebutuhan.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <h1>DAFTAR PINJAM</h1>
+    <p>Total Minus Kebutuhan: <span id="total-pinjam-minus-kebutuhan">0</span></p><!--untuk memunculkan jumlah nominal yang ada pada kolom nominal halaman "Pinjam Minus Kebutuhan"-->
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Tanggal</th>
+          <th>Nominal</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="pinjam-minus-kebutuhan">
+      </tbody>
+    </table>
+    <button class="reset" onclick="resetPinjamMinusKebutuhan()">RESET</button><!--untuk mereset data yang ada di id="pinjam-minus-kebutuhan"--> 
+  </div>
+</body>
+
+
+<script>
+   let editIndexPinjam = null; // Variabel untuk menyimpan indeks yang sedang diedit (sementara di memori halaman)
+let dataTransaksiPinjam = []; // Variabel untuk menyimpan data transaksi pinjam saat ini
+
+function tampilkanDataPinjam() {
+  const dataMinusKebutuhan = localStorage.getItem('Minus Kebutuhan');
+  const tbody = document.getElementById('pinjam-minus-kebutuhan');
+  const totalPinjamElement = document.getElementById('total-pinjam-minus-kebutuhan');
+  let totalPinjam = 0;
+
+  tbody.innerHTML = '';
+  dataTransaksiPinjam = []; // Reset data transaksi pinjam
+
+  if (dataMinusKebutuhan) {
+    const transaksi = JSON.parse(dataMinusKebutuhan);
+    transaksi
+      .filter((item, index) => {
+        if (item.jenisTransaksi === 'Pinjam') {
+          dataTransaksiPinjam.push({ ...item, originalIndex: transaksi.indexOf(item) }); // Simpan indeks asli
+          return true;
+        }
+        return false;
+      })
+      .forEach((item, index) => {
+        const row = tbody.insertRow();
+        const namaCell = row.insertCell();
+        const tanggalCell = row.insertCell();
+        const nominalCell = row.insertCell();
+        const aksiCell = row.insertCell();
+
+        namaCell.textContent = item.nama;
+        tanggalCell.textContent = item.tanggal;
+        nominalCell.textContent = formatRupiah(item.nominal); // Gunakan fungsi formatRupiah
+        totalPinjam += item.nominal;
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.onclick = function() {
+          editDataPinjam(index); // Menggunakan indeks lokal dari dataTransaksiPinjam
+        };
+        aksiCell.appendChild(editButton);
+
+        const hapusButton = document.createElement('button');
+        hapusButton.textContent = 'Hapus';
+        hapusButton.style.marginLeft = '5px';
+        hapusButton.onclick = function() {
+          hapusDataPinjam(item.nama, index); // Mengirimkan nama item juga
+        };
+        aksiCell.appendChild(hapusButton);
+      });
+  }
+
+  if (totalPinjamElement) {
+    totalPinjamElement.textContent = formatRupiah(totalPinjam); // Gunakan fungsi formatRupiah
+  }
+}
+
+function editDataPinjam(index) {
+  const transaksiYangAkanDiedit = dataTransaksiPinjam[index];
+  if (transaksiYangAkanDiedit) {
+    // Simpan indeks yang akan diedit di localStorage agar bisa diakses di halaman utama
+    localStorage.setItem('editIndex', transaksiYangAkanDiedit.originalIndex);
+    // Redirect ke halaman utama untuk pengeditan
+    window.location.href = 'Minus Kebutuhan.html?edit=true';
+  }
+}
+
+
+function hapusDataPinjam(namaTransaksi, index) {
+  if (confirm(`Apakah Anda yakin ingin menghapus "${namaTransaksi}"?`)) {
+    const transaksiYangAkanDihapus = dataTransaksiPinjam[index];
+    if (transaksiYangAkanDihapus) {
+      const originalIndex = transaksiYangAkanDihapus.originalIndex;
+      const dataMinusKebutuhan = localStorage.getItem('Minus Kebutuhan');
+      if (dataMinusKebutuhan) {
+        let transaksi = JSON.parse(dataMinusKebutuhan);
+        transaksi.splice(originalIndex, 1);
+        localStorage.setItem('Minus Kebutuhan', JSON.stringify(transaksi));
+        tampilkanDataPinjam();
+      }
+    }
+  }
+}
+
+function resetPinjamMinusKebutuhan() {
+  if (confirm('Masukkan password untuk reset semua data pinjaman:')) {
+    const password = prompt('Masukkan password:');
+    const correctPassword = 'passwordanda'; // Ganti dengan password Anda
+
+    if (password === correctPassword) {
+      const dataMinusKebutuhan = localStorage.getItem('Minus Kebutuhan');
+      if (dataMinusKebutuhan) {
+        let transaksi = JSON.parse(dataMinusKebutuhan);
+        const transaksiSetelahReset = transaksi.filter(item => item.jenisTransaksi !== 'Pinjam');
+        localStorage.setItem('Minus Kebutuhan', JSON.stringify(transaksiSetelahReset));
+        tampilkanDataPinjam();
+        alert('Data pinjaman berhasil direset.');
+      }
+    } else if (password !== null) {
+      alert('Password salah. Reset data dibatalkan.');
+    }
+  }
+}
+
+// Fungsi untuk format Rupiah
+  function formatRupiah(angka) {
+    // Mengatasi jika angka null, undefined, atau bukan angka
+    if (angka == null || isNaN(Number(angka))) {
+        return 'Rp. 0,-';
+    }
+    const numberString = Number(angka).toString();
+    const splitNumber = numberString.split('').reverse();
+    const formattedNumber = [];
+    for (let i = 0; i < splitNumber.length; i++) {
+      formattedNumber.push(splitNumber[i]);
+      if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
+        formattedNumber.push('.');
+      }
+    }
+    return `Rp. ${formattedNumber.reverse().join('')},-`;
+  }
+
+
+
+document.addEventListener('DOMContentLoaded', tampilkanDataPinjam);
+window.addEventListener('storage', tampilkanDataPinjam);
+
+</script>
+
+
+</html>
+

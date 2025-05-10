@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+}
+
+body {
+ font-family: sans-serif;
+ color: #fff;
+ min-height: 100vh;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #0133e3;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.TOTAL{
+ border: 1px solid #fff;
+  margin-top:10px;
+  width:310px
+  height: 100px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 40px  #0133e3;
+}
+.TOTAL h3{
+  color: #fff;
+  font-size: 7px;
+  margin-top:10pxpx;
+}
+.TOTAL span{
+ margin-top:5px;
+ font-size: 40px;
+ color: #fff;
+ font-weight: bold;
+}
+
+
+
+
+
+.RINCIAN{
+  border: 1px solid #6b6b78;
+  margin-top:10px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 40px  #0133e3;
+}
+.RINCIAN H4{
+  color: #6b6b78;
+  font-size: 5px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.RINCIAN h3{
+  color: #6b6b78;
+  font-size: 5px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.RINCIAN span{
+ margin-left: 15px;
+ margin-top : 0;
+ font-size: 10px;
+ color: #4c4c4c;
+ font-weight: bold;
+}
+#total-uang-hijau{
+ font-size: 15px;
+ margin-left :0;
+ margin-top: 0;
+ background: #234b1a;
+ color : #000;
+ border: 1px solid #6b6b78;
+ border-radius: 3px;
+ padding: 3px;
+}
+
+
+
+
+.MINUS{
+  border: 1px solid #6b6b78;
+  margin-top:10px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 40px  #0133e3;
+}
+.MINUS H4{
+  color: #6b6b78;
+  font-size: 5px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.MINUS h3{
+  color: #6b6b78;
+  font-size: 5px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.MINUS span{
+ margin-left: 15px;
+ margin-top : 0;
+ font-size: 10px;
+ color: #4c4c4c;
+ font-weight: bold;
+}
+#total-uang-merah{
+ font-size: 15px;
+ margin-left :0;
+ margin-top: 0;
+ background: #6a2323;
+ color : #000;
+ border: 1px solid #6b6b78;
+ border-radius: 3px;
+ padding: 3px;
+}
+
+
+.container {
+ margin-top: 20px;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+ gap: 20px;
+ padding: 2px;
+}
+ 
+</style>
+
+
+
+
+
+
+
+
+<body>
+  <div class="main">
+    
+    <h1>
+      KEUANGAN
+    </h1>
+    
+    <a href="Login.html">
+      <button class="button ph ph-list"></button>
+    </a>
+    
+    <div class="foto-profil">
+      <a href="Input Saldo Cash.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+    
+  </div>
+  
+ 
+  <div class="TOTAL">
+    <h3>Total Uang Cash</h3>
+    <span id="total-uang-cash">0</span>
+    <h3>Total Uang PRIBADI</h3>
+    <span id="total-uang-pribadi">0</span>
+  </div>
+  
+
+ <div class="container">
+  <div class="RINCIAN">
+   <center><span id="total-uang-hijau">0</span></center>
+    <h4>Uang Tabungan Harian (ANIS) =</h4>
+    <span id="total-nominal">0</span>
+    <h3>Uang Kebutuhan Bulanan =</h3>
+    <span id="entri-belom-kebutuhan-bulanan">0</span>
+    <h3>Rencana Pengeluaran Bulanan =</h3>
+    <span id="rencana-pengeluaran-bulanan">0</span>
+    <h3>Uang Untung =</h3>
+    <span id="uang-untung">0</span>
+  </div>
+  
+  <div class="MINUS">
+   <center><span id="total-uang-merah">Rp. 0.000.000,-</span></center>
+    <h4>Modal Kebutuhan =</h4>
+    <span id="total-nominal-dipinjam">0</span>
+    
+    <h3>Kebutuhan =</h3>
+    <span id="total-pinjam-minus-kebutuhan">0</span>
+    
+    <h3>Minus Anis =</h3>
+    <span id="total-pinjam-anis">0</span>
+    
+    <h3>Minus Deni =</h3>
+    <span id="total-pinjam-deni">0</span>
+    
+    <h3>Uang Listrik DENI =</h3>
+    <span id="uang-listrik-deni">0</span>
+    
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+<!--class RINCIAN-->
+<script>
+ 
+//Kode JS id="total-nominal"//
+    let dataTabungan = localStorage.getItem('dataTabungan') ? JSON.parse(localStorage.getItem('dataTabungan')) : [];
+    const totalNominalSpan = document.getElementById('total-nominal');
+
+    document.addEventListener('DOMContentLoaded', function() {
+      hitungTotalNominal(); // Inisialisasi total saat halaman dimuat
+    });
+
+    function hitungTotalNominal() {
+      let total = 0;
+      dataTabungan.forEach(item => {
+        total += parseFloat(item.nominal);
+      });
+      const formattedTotal = 'Rp. ' + new Intl.NumberFormat('id-ID', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }).format(total) + ',-';
+      totalNominalSpan.textContent = formattedTotal;
+    }
+
+
+
+
+
+
+
+
+//Kode JS id="belumKebutuhanBulanan"//
+    function tampilkanTotalBelumDiHalaman() {
+     const totalBelum = localStorage.getItem("belumKebutuhanBulanan");
+     const elemenTotalBelum = document.getElementById("entri-belom-kebutuhan-bulanan");
+     if (elemenTotalBelum) {
+       elemenTotalBelum.textContent = formatRupiah(totalBelum); 
+     }
+    }
+ 
+    window.addEventListener('load', tampilkanTotalBelumDiHalaman);
+ 
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'belumKebutuhanBulanan') {
+       tampilkanTotalBelumDiHalaman();
+      }
+    });
+
+    function formatRupiah(angka) {
+      if (angka == null || isNaN(Number(angka))) {
+          return 'Rp. 0,-';
+      }
+      const numberString = Number(angka).toString();
+      const splitNumber = numberString.split('').reverse();
+      const formattedNumber = [];
+      for (let i = 0; i < splitNumber.length; i++) {
+        formattedNumber.push(splitNumber[i]);
+        if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
+          formattedNumber.push('.');
+        }
+      }
+      return `Rp. ${formattedNumber.reverse().join('')},-`;
+    }
+ 
+</script>
+
+
+
+
+
+
+<!--class MINUS-->
+<script>
+//Kode JS id="total-nominal-dipinjam"//
+    let modalKebutuhan = localStorage.getItem('modalKebutuhan') ? JSON.parse(localStorage.getItem('modalKebutuhan')) : [];
+    const totalNominalDipinjamSpan = document.getElementById('total-nominal-dipinjam');
+
+    document.addEventListener('DOMContentLoaded', function() {
+      hitungTotalNominalDipinjam(); // Inisialisasi total saat halaman dimuat
+    });
+
+    function hitungTotalNominalDipinjam() {
+      let total = 0;
+      modalKebutuhan.forEach(item => {
+        if (item.jenisTransaksi === 'Barang Masuk') {
+          total += parseFloat(item.nominal);
+        }
+      });
+
+      const formattedTotal = 'Rp. ' + new Intl.NumberFormat('id-ID', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(total) + ',-';
+
+      totalNominalDipinjamSpan.textContent = formattedTotal;
+    }
+
+    function simpanData() {
+      localStorage.setItem('modalKebutuhan', JSON.stringify(modalKebutuhan));
+      hitungTotalNominalDipinjam();
+    }
+
+
+
+
+
+
+
+
+
+//Kode JS id="total-pinjam-minus-kebutuhan"//
+    function tampilkanTotalPinjamanDiKebutuhan() {
+      const dataMinusKebutuhan = localStorage.getItem('Minus Kebutuhan');
+      const totalPinjamElement = document.getElementById('total-pinjam-minus-kebutuhan');
+      let totalPinjam = 0;
+
+      if (dataMinusKebutuhan) {
+        const transaksi = JSON.parse(dataMinusKebutuhan);
+        transaksi.forEach(item => {
+      if (item.jenisTransaksi === 'Pinjam') {
+        totalPinjam += parseFloat(item.nominal); // Pastikan nominal diubah ke number
+       }
+      });
+
+      if (totalPinjamElement) {
+        totalPinjamElement.textContent = formatRupiah(totalPinjam); // Gunakan fungsi formatRupiah yang sudah ada
+      }
+      } else {
+      if (totalPinjamElement) {
+        totalPinjamElement.textContent = formatRupiah(0); // Jika tidak ada data, tampilkan 0
+      }
+      }
+    }
+
+    function formatRupiah(angka) {
+      if (angka == null || isNaN(Number(angka))) {
+        return 'Rp. 0,-';
+      }
+      const numberString = Number(angka).toString();
+      const splitNumber = numberString.split('').reverse();
+      const formattedNumber = [];
+      for (let i = 0; i < splitNumber.length; i++) {
+        formattedNumber.push(splitNumber[i]);
+        if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
+          formattedNumber.push('.');
+        }
+      }
+      return `Rp. ${formattedNumber.reverse().join('')},-`;
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', tampilkanTotalPinjamanDiKebutuhan);
+    window.addEventListener('storage', tampilkanTotalPinjamanDiKebutuhan);
+
+
+
+
+
+
+
+//Kode JS id="total-pinjam-anis"//
+document.addEventListener('DOMContentLoaded', function() {
+  const totalPinjamElement = document.getElementById('total-pinjam-anis');
+
+  function perbaruiTotalPinjamAnis() {
+    let total = 0;
+    const dataMinusAnis = localStorage.getItem('Minus Anis');
+    if (dataMinusAnis) {
+      const transaksi = JSON.parse(dataMinusAnis);
+      transaksi.forEach(item => {
+        if (item.jenisTransaksi === 'Pinjam') {
+          total += item.nominal;
+        }
+      });
+    }
+    if (totalPinjamElement) {
+      totalPinjamElement.textContent = formatRupiah(total);
+    }
+  }
+
+  function formatRupiah(angka) {
+    if (angka == null || isNaN(Number(angka))) {
+      return 'Rp. 0,-';
+    }
+    const numberString = Number(angka).toString();
+    const splitNumber = numberString.split('').reverse();
+    const formattedNumber = [];
+    for (let i = 0; i < splitNumber.length; i++) {
+      formattedNumber.push(splitNumber[i]);
+      if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
+        formattedNumber.push('.');
+      }
+    }
+    return `Rp. ${formattedNumber.reverse().join('')},-`;
+  }
+
+  // Panggil fungsi untuk pertama kali saat halaman dimuat
+  perbaruiTotalPinjamAnis();
+
+  // Tambahkan event listener untuk memantau perubahan di localStorage
+  window.addEventListener('storage', perbaruiTotalPinjamAnis);
+});
+
+
+
+
+
+
+
+
+//Kode JS id="total-pinjam-deni"//
+    function formatRupiah(angka) {
+      if (angka == null || isNaN(Number(angka))) {
+        return 'Rp. 0,-';
+      }
+      const numberString = Number(angka).toString();
+      const splitNumber = numberString.split('').reverse();
+      const formattedNumber = [];
+      for (let i = 0; i < splitNumber.length; i++) {
+        formattedNumber.push(splitNumber[i]);
+        if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
+          formattedNumber.push('.');
+        }
+      }
+      return `Rp. ${formattedNumber.reverse().join('')},-`;
+    }
+
+    function tampilkanTotalPinjamDeni() {
+      const totalPinjamElement = document.getElementById('total-pinjam-deni');
+      let total = 0;
+      const localStorageKey = 'Minus Deni';
+      const dataMinusDeni = localStorage.getItem(localStorageKey);
+
+      if (dataMinusDeni) {
+        const transaksi = JSON.parse(dataMinusDeni);
+        transaksi.forEach(item => {
+          if (item.jenisTransaksi === 'Pinjam') {
+            total += item.nominal;
+          }
+        });
+      }
+
+      if (totalPinjamElement) {
+        totalPinjamElement.textContent = formatRupiah(total);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', tampilkanTotalPinjamDeni);
+    window.addEventListener('storage', tampilkanTotalPinjamDeni);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function formatRupiah(angka) {
+  const numberFormat = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 2, // Pastikan selalu ada dua digit desimal
+    maximumFractionDigits: 2,
+  });
+  return numberFormat.format(angka).replace('Rp', 'Rp. ').replace(',00', ',-');
+}
+
+function tampilkanSaldoLain() {
+  const rencanaPengeluaranSpan = document.getElementById('rencana-pengeluaran-bulanan');
+  const uangUntungSpan = document.getElementById('uang-untung');
+  const uangListrikDeniSpan = document.getElementById('uang-listrik-deni');
+
+  const rencanaPengeluaran = localStorage.getItem('rencana-pengeluaran-bulanan') || '0';
+  const uangUntung = localStorage.getItem('uang-untung') || '0';
+  const uangListrikDeni = localStorage.getItem('uang-listrik-deni') || '0';
+
+  rencanaPengeluaranSpan.textContent = formatRupiah(parseFloat(rencanaPengeluaran));
+  uangUntungSpan.textContent = formatRupiah(parseFloat(uangUntung));
+  uangListrikDeniSpan.textContent = formatRupiah(parseFloat(uangListrikDeni));
+}
+
+tampilkanSaldoLain(); // Panggil saat halaman dimuat
+
+function updateWaktu() {
+  const waktuDiv = document.getElementById('waktu-realtime');
+  if (waktuDiv) {
+    const sekarang = new Date();
+    const tanggal = sekarang.toLocaleDateString();
+    const waktu = sekarang.toLocaleTimeString();
+    waktuDiv.textContent = `${tanggal} ${waktu}`;
+  }
+}
+
+setInterval(updateWaktu, 1000);
+updateWaktu();
+
+
+
+
+
+
+
+function formatRupiahCustom(amount) {
+  const formatted = new Intl.NumberFormat('id-ID', {
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(amount);
+  return 'Rp. ' + formatted.replace(/\.00$/, '') + ',-';
+}
+
+function tampilkanTotalUangCash() {
+  const totalUangCashElement = document.getElementById('total-uang-cash');
+  const storedTotal = localStorage.getItem('total-uang');
+  let nilaiYangDitampilkan = formatRupiahCustom(0); // Nilai default
+
+  if (totalUangCashElement) {
+    if (storedTotal) {
+      nilaiYangDitampilkan = formatRupiahCustom(parseFloat(storedTotal) || 0);
+    }
+    totalUangCashElement.textContent = nilaiYangDitampilkan;
+  } else {
+    console.error("Elemen dengan ID 'total-uang-cash' tidak ditemukan dalam HTML.");
+  }
+}
+
+// Panggil fungsi ini saat halaman dimuat agar nilai total uang cash ditampilkan
+tampilkanTotalUangCash();
+
+
+
+  </script>
+
+
+<script>
+  const totalNominalElement = document.getElementById('total-nominal');
+  const entriBelomKebutuhanBulananElement = document.getElementById('entri-belom-kebutuhan-bulanan');
+  const rencanaPengeluaranBulananElement = document.getElementById('rencana-pengeluaran-bulanan');
+  const uangUntungElement = document.getElementById('uang-untung');
+  const totalUangHijauElement = document.getElementById('total-uang-hijau');
+
+  function formatRupiah(angka) {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(angka).replace('Rp', 'Rp. ').replace(',00', ',-');
+  }
+
+  function formatRupiahCustom(amount) {
+    return new Intl.NumberFormat('id-ID', {
+      currency: 'IDR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount);
+  }
+
+  function hitungTotal() {
+    const harga1Text = totalNominalElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '');
+    const harga1 = parseFloat(harga1Text) || 0;
+    const entriBelomKebutuhanText = entriBelomKebutuhanBulananElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '') || '0';
+    const entriBelomKebutuhan = parseFloat(entriBelomKebutuhanText) || 0;
+    const hargaDua = parseFloat(rencanaPengeluaranBulananElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '')) || 0;
+    const ongkir = parseFloat(uangUntungElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '')) || 0;
+    const total = harga1 + entriBelomKebutuhan + hargaDua + ongkir;
+    totalUangHijauElement.textContent = formatRupiah(total);
+  }
+
+  function tampilkanTotalNominalDariStorage() {
+    let dataTabungan = localStorage.getItem('dataTabungan') ? JSON.parse(localStorage.getItem('dataTabungan')) : [];
+    let total = 0;
+    dataTabungan.forEach(item => {
+      total += parseFloat(item.nominal) || 0;
+    });
+    const formattedTotal = 'Rp. ' + new Intl.NumberFormat('id-ID', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(total) + ',-';
+    if (totalNominalElement) {
+      totalNominalElement.textContent = formattedTotal;
+      hitungTotal(); // Hitung total keseluruhan setelah total nominal diperbarui
+    } else {
+      console.error("Elemen dengan ID 'total-nominal' tidak ditemukan dalam HTML.");
+    }
+  }
+
+  function tampilkanTotalBelumDiHalaman() {
+    const totalBelum = localStorage.getItem("belumKebutuhanBulanan");
+    const elemenTotalBelum = document.getElementById("entri-belom-kebutuhan-bulanan");
+    if (elemenTotalBelum) {
+      elemenTotalBelum.textContent = formatRupiah(parseFloat(totalBelum) || 0);
+      hitungTotal(); // Hitung total setelah nilai ini diperbarui
+    }
+  }
+
+  function tampilkanSaldoLain() {
+    const rencanaPengeluaranSpan = document.getElementById('rencana-pengeluaran-bulanan');
+    const uangUntungSpan = document.getElementById('uang-untung');
+
+    const rencanaPengeluaran = localStorage.getItem('rencana-pengeluaran-bulanan') || '0';
+    const uangUntung = localStorage.getItem('uang-untung') || '0';
+
+    if (rencanaPengeluaranSpan) {
+      rencanaPengeluaranSpan.textContent = formatRupiah(parseFloat(rencanaPengeluaran));
+    }
+    if (uangUntungSpan) {
+      uangUntungSpan.textContent = formatRupiah(parseFloat(uangUntung));
+    }
+    hitungTotal(); // Hitung total setelah nilai-nilai ini ditampilkan
+  }
+
+  window.addEventListener('load', () => {
+    tampilkanTotalNominalDariStorage(); // Tampilkan total nominal dari dataTabungan
+    tampilkanTotalBelumDiHalaman();
+    tampilkanSaldoLain();
+  });
+
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'belumKebutuhanBulanan') {
+      tampilkanTotalBelumDiHalaman();
+    }
+    if (event.key === 'dataTabungan') {
+      tampilkanTotalNominalDariStorage(); // Perbarui jika dataTabungan berubah
+    }
+    if (event.key === 'rencana-pengeluaran-bulanan' || event.key === 'uang-untung') {
+      tampilkanSaldoLain();
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+<script>
+   const totalNominalDipinjamElement = document.getElementById('total-nominal-dipinjam');
+  const totalPinjamMinusKebutuhanElement = document.getElementById('total-pinjam-minus-kebutuhan');
+  const totalPinjamAnisElement = document.getElementById('total-pinjam-anis');
+  const totalPinjamDeniElement = document.getElementById('total-pinjam-deni');
+  const uangListrikDeniElement = document.getElementById('uang-listrik-deni');
+  const totalUangMerahElement = document.getElementById('total-uang-merah');
+
+  function formatRupiah(angka) {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(angka).replace('Rp', 'Rp. ').replace(',00', ',-');
+  }
+
+  function getNumericValue(element) {
+    return parseFloat(element.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '')) || 0;
+  }
+
+  function updateTotalUangMerah() {
+    if (totalUangMerahElement) {
+      const total = getNumericValue(totalNominalDipinjamElement) +
+                    getNumericValue(totalPinjamMinusKebutuhanElement) +
+                    getNumericValue(totalPinjamAnisElement) +
+                    getNumericValue(totalPinjamDeniElement) +
+                    getNumericValue(uangListrikDeniElement);
+      totalUangMerahElement.textContent = formatRupiah(total);
+    }
+  }
+
+  // Fungsi-fungsi yang sudah ada, pastikan memanggil updateTotalUangMerah setelah memperbarui nilai span terkait
+  function hitungTotalNominalDipinjam() {
+    let total = 0;
+    const modalKebutuhan = localStorage.getItem('modalKebutuhan') ? JSON.parse(localStorage.getItem('modalKebutuhan')) : [];
+    modalKebutuhan.forEach(item => {
+      if (item.jenisTransaksi === 'Barang Masuk') {
+        total += parseFloat(item.nominal);
+      }
+    });
+    const formattedTotal = 'Rp. ' + new Intl.NumberFormat('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(total) + ',-';
+    totalNominalDipinjamElement.textContent = formattedTotal;
+    updateTotalUangMerah();
+  }
+
+  function tampilkanTotalPinjamanDiKebutuhan() {
+    const dataMinusKebutuhan = localStorage.getItem('Minus Kebutuhan');
+    const totalPinjamElement = document.getElementById('total-pinjam-minus-kebutuhan');
+    let totalPinjam = 0;
+    if (dataMinusKebutuhan) {
+      const transaksi = JSON.parse(dataMinusKebutuhan);
+      transaksi.forEach(item => {
+        if (item.jenisTransaksi === 'Pinjam') {
+          totalPinjam += parseFloat(item.nominal);
+        }
+      });
+      if (totalPinjamElement) {
+        totalPinjamElement.textContent = formatRupiah(totalPinjam);
+        updateTotalUangMerah();
+      }
+    } else if (totalPinjamElement) {
+      totalPinjamElement.textContent = formatRupiah(0);
+      updateTotalUangMerah();
+    }
+  }
+
+  function perbaruiTotalPinjamAnis() {
+    const totalPinjamElement = document.getElementById('total-pinjam-anis');
+    let total = 0;
+    const dataMinusAnis = localStorage.getItem('Minus Anis');
+    if (dataMinusAnis) {
+      const transaksi = JSON.parse(dataMinusAnis);
+      transaksi.forEach(item => {
+        if (item.jenisTransaksi === 'Pinjam') {
+          total += parseFloat(item.nominal);
+        }
+      });
+    }
+    if (totalPinjamElement) {
+      totalPinjamElement.textContent = formatRupiah(total);
+      updateTotalUangMerah();
+    }
+  }
+
+  function tampilkanTotalPinjamDeni() {
+    const totalPinjamElement = document.getElementById('total-pinjam-deni');
+    let total = 0;
+    const dataMinusDeni = localStorage.getItem('Minus Deni');
+    if (dataMinusDeni) {
+      const transaksi = JSON.parse(dataMinusDeni);
+      transaksi.forEach(item => {
+        if (item.jenisTransaksi === 'Pinjam') {
+          total += parseFloat(item.nominal);
+        }
+      });
+    }
+    if (totalPinjamElement) {
+      totalPinjamElement.textContent = formatRupiah(total);
+      updateTotalUangMerah();
+    }
+  }
+
+  function tampilkanSaldoLain() {
+    const uangListrikDeniSpan = document.getElementById('uang-listrik-deni');
+    const uangListrikDeni = localStorage.getItem('uang-listrik-deni') || '0';
+    uangListrikDeniSpan.textContent = formatRupiah(parseFloat(uangListrikDeni));
+    updateTotalUangMerah();
+  }
+
+  // Inisialisasi dan event listener
+  document.addEventListener('DOMContentLoaded', () => {
+    hitungTotalNominalDipinjam();
+    tampilkanTotalPinjamanDiKebutuhan();
+    perbaruiTotalPinjamAnis();
+    tampilkanTotalPinjamDeni();
+    tampilkanSaldoLain();
+    updateTotalUangMerah(); // Pastikan total dihitung saat halaman pertama kali dimuat
+  });
+
+  window.addEventListener('storage', () => {
+    hitungTotalNominalDipinjam();
+    tampilkanTotalPinjamanDiKebutuhan();
+    perbaruiTotalPinjamAnis();
+    tampilkanTotalPinjamDeni();
+    tampilkanSaldoLain();
+    updateTotalUangMerah(); // Perbarui total saat ada perubahan di localStorage
+  });
+
+</script>
+
+
+
+
+<script>
+ function perbaruiTotalUangPribadi() {
+  const totalUangCashElement = document.getElementById('total-uang-cash');
+  const totalUangMerahElement = document.getElementById('total-uang-merah');
+  const totalUangHijauElement = document.getElementById('total-uang-hijau');
+  const totalUangPribadiElement = document.getElementById('total-uang-pribadi');
+
+  if (totalUangCashElement && totalUangMerahElement && totalUangHijauElement && totalUangPribadiElement) {
+    // Mendapatkan nilai dari elemen total-uang-cash
+    const nilaiCashText = totalUangCashElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '') || '0';
+    const nilaiCash = parseFloat(nilaiCashText) || 0;
+
+    // Mendapatkan nilai dari elemen total-uang-merah
+    const nilaiMerahText = totalUangMerahElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '') || '0';
+    const nilaiMerah = parseFloat(nilaiMerahText) || 0;
+
+    // Mendapatkan nilai dari elemen total-uang-hijau
+    const nilaiHijauText = totalUangHijauElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '') || '0';
+    const nilaiHijau = parseFloat(nilaiHijauText) || 0;
+
+    // Menjumlahkan nilai cash dan merah
+    const jumlahCashMerah = nilaiCash + nilaiMerah;
+
+    // Mengurangkan hasil penjumlahan dengan nilai hijau
+    const totalPribadi = jumlahCashMerah - nilaiHijau;
+
+    // Format total pribadi ke dalam format Rupiah yang diinginkan
+    const formattedTotalPribadi = 'Rp. ' + new Intl.NumberFormat('id-ID', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(totalPribadi) + ',-';
+
+    // Menampilkan hasil pengurangan pada elemen total-uang-pribadi
+    totalUangPribadiElement.textContent = formattedTotalPribadi;
+
+    // Mengubah warna berdasarkan nilai totalPribadi
+    if (totalPribadi > 0) {
+      totalUangPribadiElement.style.color = 'green';
+    } else if (totalPribadi < 0) {
+      totalUangPribadiElement.style.color = 'red';
+    } else {
+      totalUangPribadiElement.style.color = ''; // Reset ke warna default jika nol
+    }
+
+  } else {
+    console.error("Salah satu atau semua elemen dengan ID 'total-uang-cash', 'total-uang-merah', 'total-uang-hijau', atau 'total-uang-pribadi' tidak ditemukan dalam HTML.");
+  }
+}
+
+// Panggil fungsi ini saat halaman dimuat dan setiap kali ada perubahan yang mempengaruhi total-uang-cash, total-uang-merah, atau total-uang-hijau
+document.addEventListener('DOMContentLoaded', perbaruiTotalUangPribadi);
+window.addEventListener('storage', perbaruiTotalUangPribadi);
+
+// Pastikan Anda memanggil fungsi perbaruiTotalUangPribadi di setiap fungsi
+// yang memanipulasi nilai dari total-uang-cash, total-uang-merah, atau total-uang-hijau.
+
+// Contoh, pastikan fungsi ini dipanggil di dalam fungsi-fungsi lain yang memperbarui nilai-nilai tersebut:
+function tampilkanTotalUangCash() {
+  const totalUangCashElement = document.getElementById('total-uang-cash');
+  const storedTotal = localStorage.getItem('total-uang');
+  let nilaiYangDitampilkan = formatRupiahCustom(0); // Nilai default
+
+  if (totalUangCashElement) {
+    if (storedTotal) {
+      nilaiYangDitampilkan = formatRupiahCustom(parseFloat(storedTotal) || 0);
+    }
+    totalUangCashElement.textContent = nilaiYangDitampilkan;
+    perbaruiTotalUangPribadi(); // Panggil setelah memperbarui nilai total-uang-cash
+  } else {
+    console.error("Elemen dengan ID 'total-uang-cash' tidak ditemukan dalam HTML.");
+  }
+}
+
+function updateTotalUangMerah() {
+  const totalUangMerahElement = document.getElementById('total-uang-merah');
+  if (totalUangMerahElement) {
+    const total = getNumericValue(totalNominalDipinjamElement) +
+                  getNumericValue(totalPinjamMinusKebutuhanElement) +
+                  getNumericValue(totalPinjamAnisElement) +
+                  getNumericValue(totalPinjamDeniElement) +
+                  getNumericValue(uangListrikDeniElement);
+    totalUangMerahElement.textContent = formatRupiah(total);
+    perbaruiTotalUangPribadi(); // Panggil setelah memperbarui nilai total-uang-merah
+  }
+}
+
+function hitungTotal() {
+  const totalNominalElement = document.getElementById('total-nominal');
+  const entriBelomKebutuhanBulananElement = document.getElementById('entri-belom-kebutuhan-bulanan');
+  const rencanaPengeluaranBulananElement = document.getElementById('rencana-pengeluaran-bulanan');
+  const uangUntungElement = document.getElementById('uang-untung');
+  const totalUangHijauElement = document.getElementById('total-uang-hijau');
+
+  if (totalNominalElement && entriBelomKebutuhanBulananElement && rencanaPengeluaranBulananElement && uangUntungElement && totalUangHijauElement) {
+    const harga1Text = totalNominalElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '');
+    const harga1 = parseFloat(harga1Text) || 0;
+    const entriBelomKebutuhanText = entriBelomKebutuhanBulananElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '') || '0';
+    const entriBelomKebutuhan = parseFloat(entriBelomKebutuhanText) || 0;
+    const hargaDua = parseFloat(rencanaPengeluaranBulananElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '')) || 0;
+    const ongkir = parseFloat(uangUntungElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '')) || 0;
+    const total = harga1 + entriBelomKebutuhan + hargaDua + ongkir;
+    totalUangHijauElement.textContent = formatRupiah(total);
+    perbaruiTotalUangPribadi(); // Panggil setelah memperbarui nilai total-uang-hijau
+  }
+}
+
+// Pastikan Anda memanggil perbaruiTotalUangPribadi() di setiap fungsi
+// yang memanipulasi nilai dari elemen total-uang-cash, total-uang-merah, atau total-uang-hijau.
+
+</script>
+
+
+
+
+
+</html>

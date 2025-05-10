@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #001efabe;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.main h2{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 37px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+#waktu-realtime {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+.TOTAL{
+ border: 1px solid #ccc;
+  margin-top:10px;
+  width:310px
+  height: 100px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 50px #0133e3;
+}
+.TOTAL h3{
+  color: #fff;
+  font-size: 7px;
+  margin-top:10pxpx;
+}
+.TOTAL span{
+ margin-top:5px;
+ font-size: 40px;
+ color: #fff;
+ font-weight: bold;
+}
+
+
+
+.menu{
+  border: 1px solid #ccc;
+  margin-top:10px;
+  width: 310px
+  height: 370px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 50px #0133e3
+}
+
+.container p{
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  margin:5px;
+}
+.container input{
+  margin-left:20px;
+  
+  width:260px;
+  height: 10px;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 10px 10px 10px 10px;
+  color:#fff;
+  font-size: 7px;
+}
+.container select{
+  margin-left:20px;
+  width:286.5px;
+  height: 42.5px;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 10px 10px 10px 10px;
+  color:#fff;
+  font-size: 7px;
+}
+.container
+.submit{
+  height: 30px;
+  width: 100%;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 12px;
+  color:#000;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+a{
+ text-decoration: none;
+ text-align: center;
+}
+.mini{
+ border: 1px solid #fff;
+ margin-top:10px;
+ width: 310px
+ height: 370px;
+ background: #000;
+ color:#fff;
+ border-radius: 10px;
+ padding: 10px 20px;
+ box-shadow: 0px 0px 50px #0133e3
+}
+a h5{
+ font-size: 20px;
+ margin: 5px;
+}
+
+a h6{
+ font-size: 8px;
+ margin: 5px;
+}
+
+.Reset
+.reset{
+ color:#fff;
+}
+ 
+</style>
+
+
+
+
+
+
+
+
+<body>
+  <div class="main">
+
+    <h1>
+      INPUT SALDO CASH
+    </h1>
+    <h2>
+     <div id="waktu-realtime"></div>
+    </h2>
+
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+
+    <div class="foto-profil">
+      <a href="Riwayat.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+
+  </div>
+
+
+  <div class="menu">
+    <div class="container">
+     <div class="saldo-cash">
+      
+      <p><label for="dompet">Dompet</label></p>
+      <input type="number" id="dompet">
+      
+      <p><label for="bca">BCA</label></p>
+      <input type="number" id="bca">
+
+      <p><label for="dana-deni">DANA</label></p>
+      <input type="number" id="dana-deni">
+      
+      <p><label for="spay-anis">Spay</label></p>
+      <input type="number" id="spay-anis">
+      
+      <p><label for="lainya">Lainya</label></p>
+      <input type="number" id="dana-anis">
+      
+     </div>
+     
+     
+     <!--yang ada di class="saldo-cash" saat di submit output data tersimpan di localStorage key="saldo-cash" dan data muncul di halaman "riwayat.html" beserta scan id="waktu-realtime". beri aksi edit dan hapus di dalamnya--> 
+      
+      
+      
+      
+      <button class="submit" id="simpanButton" onclick="tambahData()">
+        SUBMIT</button> 
+      
+      
+      
+    </div>
+  </div>
+  
+  <a href="Input Saldo Lain.html">
+   <div class="mini">
+    <div class="container2"></div>
+     <h5>INPUT SALDO LAIN</h5>
+     <h6> (Klik Disini Untuk Input Saldo Lain)</h6>
+    </div>
+   </div>
+  </a>
+  
+ </body>
+</html>
+
+
+  <script>
+   //tampilan jam dan tanggal//
+    function updateWaktu() {
+      const waktuDiv = document.getElementById('waktu-realtime');
+      const sekarang = new Date();
+      const tanggal = sekarang.toLocaleDateString();
+      const waktu = sekarang.toLocaleTimeString();
+      waktuDiv.textContent = `${tanggal} ${waktu}`;
+    }
+
+    // Panggil fungsi updateWaktu setiap detik (1000 milidetik)
+    setInterval(updateWaktu, 1000);
+
+    // Panggil updateWaktu saat halaman pertama kali dimuat
+    updateWaktu();
+  </script>
+
+
+<script>
+ function simpanSaldoCash() {
+  const dompet = document.getElementById('dompet').value;
+  const bca = document.getElementById('bca').value;
+  const danaDeni = document.getElementById('dana-deni').value;
+  const spayAnis = document.getElementById('spay-anis').value;
+  const danaAnis = document.getElementById('dana-anis').value;
+  const waktuRealtime = new Date().toLocaleString();
+
+  const riwayat = JSON.parse(localStorage.getItem('saldo-cash')) || [];
+  riwayat.push({
+    dompet: dompet,
+    bca: bca,
+    danaDeni: danaDeni,
+    spayAnis: spayAnis,
+    lainya: danaAnis,
+    waktu: waktuRealtime
+  });
+
+  localStorage.setItem('saldo-cash', JSON.stringify(riwayat));
+  alert('Data saldo cash berhasil disimpan!');
+  // Redirect atau lakukan tindakan lain setelah menyimpan
+}
+
+
+const simpanButton = document.getElementById('simpanButton');
+if (simpanButton) {
+  simpanButton.addEventListener('click', function() {
+    simpanSaldoCash();
+  });
+}
+
+function updateWaktu() {
+  const waktuDiv = document.getElementById('waktu-realtime');
+  if (waktuDiv) {
+    const sekarang = new Date();
+    const tanggal = sekarang.toLocaleDateString();
+    const waktu = sekarang.toLocaleTimeString();
+    waktuDiv.textContent = `${tanggal} ${waktu}`;
+  }
+}
+
+setInterval(updateWaktu, 1000);
+updateWaktu();
+
+</script>
+
+
+
+
+
+
+</html>

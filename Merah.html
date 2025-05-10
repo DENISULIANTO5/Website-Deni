@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+
+
+
+<style>
+ 
+*{
+  background: #000;
+}
+
+body {
+ font-family: sans-serif;
+ color: #fff;
+ min-height: 100vh;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #0133e3;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main h2{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 37px;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+.container {
+ margin-top:8px;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+ gap: 20px;
+ padding: 20px;
+}
+.container a{
+ font-size: 11px;
+}
+.Litem {
+ margin-top: 50px;
+ width: 300px;
+ height: 100px;
+ background-color: #141414;
+ border-radius: 10px;
+ border: 3px solid #000;
+ box-shadow: 0 0px 20px #0133e3;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding: 15px;
+ text-decoration: none;
+ color: inherit; 
+ cursor: pointer;
+}
+.item {
+ background-color: #141414;
+ border-radius: 10px;
+ border: 3px solid #000;
+ box-shadow: 0 0px 20px #2c9d01;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding: 15px;
+ text-decoration: none;
+ color: inherit; 
+ cursor: pointer;
+}
+.mitel{
+ background-color: #141414;
+ border-radius: 10px;
+ border: 3px solid #000;
+ box-shadow: 0 0px 20px #dc0718;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding: 15px;
+ text-decoration: none;
+ color: inherit; 
+ cursor: pointer;
+}
+
+.image-container {
+ width: 80px;
+ height: 80px;
+ border: 3px solid #000;
+ border-radius: 50%;
+ overflow: hidden;
+ margin-bottom: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.image-container img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ background-color:#141414;
+}
+.title {
+ font-size: 11px;
+ text-align: center; 
+ background-color:#141414;
+}
+
+
+
+
+
+
+
+
+
+.kotak-4{
+  margin-top :216px;
+  width: 350px;
+  height: 5px;
+  background-color: red;
+  position: relative; /* Agar bisa dianimasikan posisinya */
+  animation-name: laju;
+  animation-duration: 4s;
+  animation-iteration-count: infinite; /* Animasi berulang tanpa batas */
+  animation-direction: alternate; /* Animasi bergerak maju dan mundur */
+}
+@keyframes laju {
+  0% {
+    left: 0;
+    background-color: green;
+    transform: rotateY(0deg);
+  }
+  100% {
+    left: 0;
+    background-color: red;
+    transform: rotateY(90deg);
+  }
+ 
+</style>
+
+<body>
+  <div class="main">
+    
+    <h1>
+      SELAMAT DATANG
+    </h1>
+    <h2>
+      Di Website DENI SULIANTO
+    </h2>
+    
+    <a href="Login.html">
+      <button class="button ph ph-list"></button>
+    </a>
+    
+    <div class="foto-profil">
+      <a href="Index.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+    
+  </div>
+  
+    <div class="container">
+        
+        <a href="Modal Kebutuhan.html" class="mitel" target="_blank">
+            <div class="image-container">
+                <img src="gambar profil.png" alt="Tabungan Harian 2">
+            </div>
+            <div class="title">Modal Kebutuhan</div>
+        </a>
+        
+        
+        <a href="Minus Kebutuhan.html" class="mitel" target="_blank">
+            <div class="image-container">
+                <img src="gambar profil.png" alt="Tabungan Harian 2">
+            </div>
+            <div class="title">Minus Kebutuhan</div>
+        </a>
+        
+        
+        <a href="Minus Anis.html" class="mitel" target="_blank">
+            <div class="image-container">
+                <img src="gambar profil.png" alt="Tabungan Harian 2">
+            </div>
+            <div class="title">Minus Anis</div>
+        </a>
+        
+        
+        <a href="Minus Deni.html" class="mitel" target="_blank">
+            <div class="image-container">
+                <img src="gambar profil.png" alt="Tabungan Harian 2">
+            </div>
+            <div class="title">Minus Deni</div>
+        </a>
+    </div>
+    
+  <br>
+  <center><div class="kotak-4"></div></center>
+  
+  
+</body>
+
+
+</html>
+

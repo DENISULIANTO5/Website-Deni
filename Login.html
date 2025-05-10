@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Website DENI SULIANTO</title>
+  
+  <link href=".css" rel="stylesheet" type="text/css" />
+  
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+
+
+
+
+
+
+<style>
+ 
+ * {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: "poppins",Sans-Serif;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+
+.wrapper{
+  width:310px;
+  height: 370px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 50px #001efabe
+}
+.wrapper h1{
+  font-palette: 25px;
+  font-size: 40px;
+  text-align: center;
+  margin-top:10px;
+  margin-bottom: 35px;
+}
+
+.wrapper
+.input-box{
+  height: 30px;
+  width:100%;
+  margin: 20px 0;
+}
+
+.input-box Input{
+  width:100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 20px 40px 20px 20px;
+  color:#fff;
+}
+
+.input-box input::placeholder{
+  color:#fff;
+}
+
+.input-box i{   <!--clas jadi class-->
+  margin-top:12px;
+  position: absolute;
+  right: 67px;
+}
+
+.wrapper
+.remember-forgot{
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-top: 30px;
+}
+
+.remember-forgot label input {
+  accent-color:  #221f1fbe;;
+  margin-right: 3px;
+}
+.remember-forgot a{
+  color: #fff;
+  text-decoration: none;
+}
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.wrapper 
+.btn{
+  height: 30px;
+  width: 100%;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 12px;
+  color:#000;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.wrapper 
+.register-link{
+  font-size: 11px;
+  text-align: center;
+  margin-top: 55px;
+}
+
+.register-link p a {
+  margin-left: 5px;
+  font-size: 13px;
+  color: #001efabe;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+ 
+</style>
+<body>
+    
+    <div class = "wrapper">
+      <form action="">
+        <h1>Login</h1>
+        <div class="input-box">
+          <input type="text" placeholder="username"required>
+          <i clas='bx bxs-user'></i>  <!--clas jadi class-->
+        </div>
+        <div class="input-box">
+          <input type="Password" placeholder="Password"required>
+          <i clas='bx bxs-lock-alt'></i>  <!--clas jadi class-->
+        </div>
+        
+        <div class="remember-forgot">
+          <label><input type="checkbox">Remember me</label>
+          <a href="#"></a>
+        </div>
+        
+        <button type="submit" class="btn">Login</button>
+        
+        <div class="register-link">
+          <p>Dont' have an account?<a href="registasi.html">Sign Up</a></p>
+        </div>
+      </form>
+    </div>
+    
+    
+</body>
+
+</html>

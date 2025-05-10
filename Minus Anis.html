@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #001efabe;
+  position: relative;
+}
+
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+.TOTAL{
+ border: 1px solid #ccc;
+  margin-top:10px;
+  width:310px
+  height: 100px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 50px #9c0101;
+}
+.TOTAL h3{
+  color: #fff;
+  font-size: 7px;
+  margin-top:10pxpx;
+}
+.TOTAL span{
+ margin-top:5px;
+ font-size: 40px;
+ color: #fff;
+ font-weight: bold;
+}
+
+
+
+.menu{
+ border: 1px solid #ccc;
+  margin-top:10px;
+  width: 310px
+  height: 370px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 50px #9c0101
+}
+.menu h4{
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.container p{
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  margin:7px;
+}
+.container input{
+  margin-left:20px;
+  
+  width:260px;
+  height: 15px;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 10px 10px 10px 10px;
+  color:#fff;
+  font-size: 7px;
+}
+.container select{
+  margin-left:20px;
+  
+  width:286.5px;
+  height: 42.5px;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 3px solid #221f1fbe;
+  border-radius: 40px;
+  padding: 10px 10px 10px 10px;
+  color:#fff;
+  font-size: 7px;
+}
+.container
+.submit{
+  height: 30px;
+  width: 100%;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 12px;
+  color:#000;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.Reset
+.reset{
+ color:#fff;
+ 
+}
+ 
+</style>
+
+
+
+
+
+
+
+<body>
+  <div class="main">
+
+    <h1>
+      MINUS ANIS
+    </h1>
+
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+
+    <div class="foto-profil">
+      <a href="Menu-Pilihan-Minus-Anis.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+
+  </div>
+
+
+  <div class="TOTAL">
+    <h3>Total Uang Dipinjam</h3>
+    <span id="total-pinjam-anis">0</span><!--untuk memunculkan jumlah nominal yang ada pada kolom nominal halaman "Pinjam Minus Anis.html"-->
+  </div>
+
+
+  <div class="menu">
+    <h4>ENTRI DISINI</h4>
+    <div class="container">
+
+      <p><label for="jenis-transaksi">Jenis Transaksi</label></p>
+      <!--value="Pinjam" data keluar di halaman "Pinjam Anis.html"-->
+      <!--value="Lunas" data keluar di halaman "Lunas Anis.html"-->
+      <select id="jenis-transaksi">
+        <option>Pilih Jenis Transaksi</option>
+        <option value="Pinjam-Anis">Pinjam</option>
+        <option value="Lunas-Anis">Lunas</option>
+        </select>
+
+
+      <p><label for="nama-minus">Nama</label></p>
+      <input type="text" id="nama-minus">
+
+      <p><label for="tanggal">Tanggal</label></p>
+      <input type="date" id="tanggal"><br>
+
+      <p><label for="nominal">Nominal</label></p>
+     <input type="number" id="nominal">
+
+      </i> <button class="submit" id="simpanButton" onclick="tambahData()">
+        SUBMIT</button> 
+        <!--key localStorage "Minus Anis"-->
+        
+        
+    </div>
+  </div>
+</body>
+
+
+
+
+
+<script>
+ let indeksEdit = null; // Variabel untuk menyimpan indeks data yang sedang diedit
+
+function populateForm(data) {
+  document.getElementById('nama-minus').value = data.nama;
+  document.getElementById('tanggal').value = data.tanggal;
+  document.getElementById('jenis-transaksi').value = data.jenisTransaksi;
+  document.getElementById('nominal').value = data.nominal;
+}
+
+function tambahData() {
+  const nama = document.getElementById('nama-minus').value;
+  const tanggal = document.getElementById('tanggal').value;
+  const jenisTransaksi = document.getElementById('jenis-transaksi').value;
+  const nominal = parseFloat(document.getElementById('nominal').value);
+
+  if (nama && tanggal && jenisTransaksi && !isNaN(nominal)) {
+    const dataMinusAnis = localStorage.getItem('Minus Anis');
+    let transaksi = dataMinusAnis ? JSON.parse(dataMinusAnis) : [];
+
+    if (indeksEdit !== null) {
+      // Edit data yang sudah ada
+      transaksi[indeksEdit] = {
+        nama: nama,
+        tanggal: tanggal,
+        jenisTransaksi: jenisTransaksi.replace('-Anis', ''), // Simpan tanpa "-Anis"
+        nominal: nominal
+      };
+      indeksEdit = null; // Reset indeks edit setelah berhasil
+      // Tidak ada alert di sini
+    } else {
+      // Tambah data baru
+      transaksi.push({
+        nama: nama,
+        tanggal: tanggal,
+        jenisTransaksi: jenisTransaksi.replace('-Anis', ''), // Simpan tanpa "-Anis"
+        nominal: nominal
+      });
+      // Tidak ada alert di sini
+    }
+
+    localStorage.setItem('Minus Anis', JSON.stringify(transaksi));
+    // Bersihkan form setelah menyimpan/mengedit
+    document.getElementById('nama-minus').value = '';
+    document.getElementById('tanggal').value = '';
+    document.getElementById('jenis-transaksi').selectedIndex = 0;
+    document.getElementById('nominal').value = '';
+
+    // Redirect ke halaman yang sesuai
+    if (jenisTransaksi === 'Pinjam-Anis') {
+      window.location.href = 'Pinjam Minus Anis.html';
+    } else if (jenisTransaksi === 'Lunas-Anis') {
+      window.location.href = 'Lunas Minus Anis.html';
+    }
+
+    // Perbarui tampilan total di halaman ini setelah menyimpan (opsional jika langsung redirect)
+    // perbaruiTotalPinjamAnis();
+  } else {
+    alert('Harap isi semua kolom dengan benar!');
+  }
+}
+
+function perbaruiTotalPinjamAnis() {
+  const totalPinjamElement = document.getElementById('total-pinjam-anis');
+  let total = 0;
+  const dataMinusAnis = localStorage.getItem('Minus Anis');
+  if (dataMinusAnis) {
+    const transaksi = JSON.parse(dataMinusAnis);
+    transaksi.forEach(item => {
+      if (item.jenisTransaksi === 'Pinjam') {
+        total += item.nominal;
+      }
+    });
+  }
+  if (totalPinjamElement) {
+    totalPinjamElement.textContent = formatRupiah(total); // Gunakan fungsi formatRupiah
+  }
+}
+
+
+  function formatRupiah(angka) {
+    // Mengatasi jika angka null, undefined, atau bukan angka
+    if (angka == null || isNaN(Number(angka))) {
+        return 'Rp. 0,-';
+    }
+    const numberString = Number(angka).toString();
+    const splitNumber = numberString.split('').reverse();
+    const formattedNumber = [];
+    for (let i = 0; i < splitNumber.length; i++) {
+      formattedNumber.push(splitNumber[i]);
+      if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
+        formattedNumber.push('.');
+      }
+    }
+    return `Rp. ${formattedNumber.reverse().join('')},-`;
+  }
+
+
+// Cek apakah ada parameter edit di URL saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+  perbaruiTotalPinjamAnis();
+  const urlParams = new URLSearchParams(window.location.search);
+  const isEdit = urlParams.get('edit');
+  const storedEditIndex = localStorage.getItem('editIndex');
+
+  if (isEdit === 'true' && storedEditIndex !== null) {
+    const dataMinusAnis = localStorage.getItem('Minus Anis');
+    if (dataMinusAnis) {
+      const transaksi = JSON.parse(dataMinusAnis);
+      const index = parseInt(storedEditIndex);
+      if (transaksi[index]) {
+        populateForm(transaksi[index]);
+        indeksEdit = index; // Set indeks edit saat ini
+      }
+    }
+    localStorage.removeItem('editIndex'); // Hapus indeks dari localStorage setelah digunakan
+  }
+});
+
+window.addEventListener('storage', perbaruiTotalPinjamAnis);
+
+// Tambahkan event listener untuk form submit (jika Anda menggunakan tag <form>)
+const formMinusAnis = document.getElementById('form-minus-anis'); // Ganti 'form-minus-anis' dengan ID form Anda
+if (formMinusAnis) {
+  formMinusAnis.addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah submit form biasa yang menyebabkan reload halaman
+    tambahData();
+  });
+} else {
+  // Jika tidak ada form, pastikan tombol "Simpan" memanggil langsung fungsi tambahData()
+  const tombolSimpan = document.getElementById('simpanButton'); // Ganti 'simpanButton' dengan ID tombol Anda
+  if (tombolSimpan) {
+    tombolSimpan.onclick = tambahData;
+  }
+}
+
+</script>
+
+
+
+</html>
+
+
+
+

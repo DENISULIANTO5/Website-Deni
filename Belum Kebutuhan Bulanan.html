@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Belum Kebutuhan Bulanan</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+
+
+
+
+
+<style>
+ 
+ *{
+  background: #000;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.main{
+  background: #000;
+  display: flex;
+  height: 90px;
+  width : 100%;
+  box-shadow: 0 0 50px #0133e3;
+  position: relative;
+}
+.main button{
+  background-color: hsla(0,0%,45.4%,0.549);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 25px;
+}
+.foto-profil{
+  background: #000;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+.foto-profil a img{
+  height: 50px;
+  width: 50px;
+  background: #000;
+  text-decoration: none;
+}
+.main h1{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.main h2{
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 37px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+.kotak {
+ width: 150px;
+ height: 150px;
+ background-color: #000;
+ display: flex;
+ flex-direction: column;
+ text-decoration: none;
+ color: inherit; 
+}
+.bundar {
+ width: 150px;
+ height: 100px;
+ background-color: #000;
+ display: flex;
+ flex-direction: column;
+ text-decoration: none;
+ color: inherit; 
+}
+
+
+
+
+
+
+
+.TOTAL{
+  background: #000;
+  margin-top:8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top:10px;
+  width:310px
+  height: 150px;
+  background: #000;
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 40px #026f29;
+}
+.TOTAL h3{
+  color: #fff;
+  font-size: 7px;
+  margin-top:10px;
+}
+.TOTAL span{
+ margin-top:0px;
+ margin-left: 10px;
+ font-size: 15px;
+ color: #fff;
+ font-weight: bold;
+}
+
+
+
+
+        .container {
+            margin-top: 20px;
+            width: 310px
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 50px #026f29
+        }
+        .id{
+         width: 20px;
+         height: 15px;
+         font-size: 10px;
+        }
+        .nama{
+         width: 150px;
+         height: 15px;
+         font-size: 10px;
+        }
+        .status{
+         width: 40px;
+         height: 15px;
+         font-size: 10px;
+        }
+        .nominal{
+         width: 70px;
+         height: 15px;
+         font-size: 10px;
+        }
+        .aksi{
+         width: 50px;
+         height: 15px;
+         font-size: 10px;
+        }
+        
+        
+        
+        .container p{
+         font-size: 15px;
+         font-weight: bold;
+         text-align: center;
+         color:#fff;
+        }
+        .container h1{
+         font-size: 15px;
+         font-weight: bold;
+        }
+        .container table{
+         width: 100%;
+         font-size: 5px;
+         font-weight: bold;
+         text-align: center;
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 20px;
+        }
+        .container tbody{
+         font-size: 5px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container th {
+         font-size: 10px;
+         font-weight: bold;
+         text-align: center;
+         background: #1a1078;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: center;
+        }
+        .aksi-buttons button {
+            background-color: #2228e2;
+            color: white;
+            border: none;
+            padding: 5px;
+            margin-right: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 5px;
+        }
+        button.reset {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+ 
+</style>
+
+
+
+
+
+
+
+
+
+<body>
+  <div class="main">
+   
+    <h1>
+      BELUM
+    </h1>
+    <h2>
+      KEBUTUHAN BULANAN
+    </h2>
+   
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+   
+    <div class="foto-profil">
+      <a href="Menu Kebutuhan Bulanan.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+  </div>
+  
+  
+  <div class="TOTAL">
+   <div class="kotak">
+    <h3>Gaji</h3>
+    <span id="gaji-kebutuhan-bulanan">Rp. 4.550.000,-</span>
+    <h3>Total Kebutuhan</h3>
+    <span id="total-kebutuhan-bulanan">Rp. 4.252.800,-</span>
+   </div>
+   
+   <div class="bundar">
+    <h3>Entri Sudah</h3>
+    <span id="entri-sudah-kebutuhan-bulanan">0</span>
+    <h3>Entri Belom</h3>
+    <span id="entri-belom-kebutuhan-bulanan">0</span>
+    <h3>Sisa = Uang Pribadi</h3>
+    <span id="sisa-kebutuhan-bulanan">Rp. 297.200,-</span>
+   </div>
+  </div>
+  
+  
+  <div class="container">
+    <h1>*1 CICILAN BULANAN</h1>
+    <table>
+      <thead>
+        <tr>
+          <th class = "id">Id</th>
+          <th class = "nama">Nama</th>
+          <th class = "status">Status</th>
+          <th class = "nominal">Nominal</th>
+          <th class = "aksi">Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="1">
+      </tbody>
+    </table>
+  </div>
+  
+  
+  
+  <div class="container">
+    <h1>*2 JATAH BULANAN</h1>
+    <table>
+      <thead>
+        <tr>
+          <th class = "id">Id</th>
+          <th class = "nama">Nama</th>
+          <th class = "status">Status</th>
+          <th class = "nominal">Nominal</th>
+          <th class = "aksi">Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="2">
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <div class="container">
+    <h1>*3 KEBUTUHAN RUMAH</h1>
+    <table>
+      <thead>
+        <tr>
+        <tr>
+          <th class = "id">Id</th>
+          <th class = "nama">Nama</th>
+          <th class = "status">Status</th>
+          <th class = "nominal">Nominal</th>
+          <th class = "aksi">Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="3">
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <div class="container">
+    <h1>*4 KEBUTUHAN YASMINE</h1>
+    <table>
+      <thead>
+        <tr>
+        <tr>
+          <th class = "id">Id</th>
+          <th class = "nama">Nama</th>
+          <th class = "status">Status</th>
+          <th class = "nominal">Nominal</th>
+          <th class = "aksi">Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="4">
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <div class="container">
+    <h1>*5 KEBUTUHAN YASMIME (susu-pempes)</h1>
+    <table>
+      <thead>
+        <tr>
+          <th class = "id">Id</th>
+          <th class = "nama">Nama</th>
+          <th class = "status">Status</th>
+          <th class = "nominal">Nominal</th>
+          <th class = "aksi">Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="5">
+      </tbody>
+    </table>
+  </div>
+  
+
+<div class="container">
+    <h1>*6 KEBUTUHAN MONTOR (Status: Sudah)</h1>
+    <table>
+      <thead>
+        <tr>
+          <th class = "id">Id</th>
+          <th class = "nama">Nama</th>
+          <th class = "status">Status</th>
+          <th class = "nominal">Nominal</th>
+          <th class = "aksi">Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="6"></tbody>
+    </table>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+<script>  
+  const sandiHapus = "150205"; // Ganti dengan sandi yang lebih aman
+
+  function formatRupiah(angka) {
+    // Mengatasi jika angka null, undefined, atau bukan angka
+    if (angka == null || isNaN(Number(angka))) {
+        return 'Rp. 0,-';
+    }
+    const numberString = Number(angka).toString();
+    const splitNumber = numberString.split('').reverse();
+    const formattedNumber = [];
+    for (let i = 0; i < splitNumber.length; i++) {
+      formattedNumber.push(splitNumber[i]);
+      if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
+        formattedNumber.push('.');
+      }
+    }
+    return `Rp. ${formattedNumber.reverse().join('')},-`;
+  }
+
+  function hitungTotalBelum(kebutuhanBulanan) {
+    let totalBelum = 0;
+    const kebutuhanBelum = kebutuhanBulanan.filter(item => item.status === "Belom");
+
+    kebutuhanBelum.forEach(item => {
+      const nominalAngka = parseFloat(item.nominal);
+      if (!isNaN(nominalAngka)) {
+        totalBelum += nominalAngka;
+      }
+    });
+
+    localStorage.setItem("belumKebutuhanBulanan", totalBelum.toString());
+    return totalBelum;
+  }
+
+  function tampilkanKebutuhan() {
+    const storedKebutuhan = localStorage.getItem("kebutuhanBulanan");
+    let totalNominalHalamanIni = 0; // Inisialisasi total nominal untuk halaman ini
+
+    // Kosongkan semua tbody yang relevan sebelum memproses data baru
+    document.querySelectorAll('tbody[id]').forEach(tbody => tbody.innerHTML = '');
+
+    if (storedKebutuhan) {
+      const kebutuhanBulanan = JSON.parse(storedKebutuhan);
+
+      // Filter data: Hanya ambil item dengan status "Belom"
+      const filteredKebutuhan = kebutuhanBulanan.filter(item => item.status === "Belom");
+
+      // Menjumlahkan nilai nominal HANYA dari data yang difilter untuk tampilan di halaman ini
+      filteredKebutuhan.forEach(item => {
+        const nominalAngka = parseFloat(item.nominal);
+        if (!isNaN(nominalAngka)) {
+            totalNominalHalamanIni += nominalAngka;
+        }
+      });
+
+      // Mengelompokkan data yang SUDAH DIFILTER berdasarkan ID
+      const kebutuhanPerId = {};
+      filteredKebutuhan.forEach(item => {
+        if (!kebutuhanPerId[item.id]) {
+          kebutuhanPerId[item.id] = [];
+        }
+        kebutuhanPerId[item.id].push(item);
+      });
+
+      // Menampilkan data yang SUDAH DIFILTER ke dalam tabel yang sesuai
+      for (const id in kebutuhanPerId) {
+        const tbody = document.getElementById(id);
+        if (tbody) {
+          kebutuhanPerId[id].forEach((item, index) => {
+            const row = tbody.insertRow();
+            const idCell = row.insertCell();
+            const namaCell = row.insertCell();
+            const statusCell = row.insertCell();
+            const nominalCell = row.insertCell();
+            const aksiCell = row.insertCell();
+
+            idCell.textContent = item.id;
+            namaCell.textContent = item.nama;
+            statusCell.textContent = item.status;
+            nominalCell.textContent = formatRupiah(item.nominal); // Format nominal menjadi Rupiah
+
+            // Tombol Hapus
+            const hapusButton = document.createElement("button");
+            hapusButton.textContent = "X";
+            hapusButton.onclick = function() {
+              konfirmasiHapus(item);
+            };
+            aksiCell.appendChild(hapusButton);
+
+            // Tombol Edit
+            const editButton = document.createElement("button");
+            editButton.textContent = "V";
+            editButton.onclick = function() {
+              editKebutuhan(item);
+            };
+            aksiCell.appendChild(editButton);
+          });
+        }
+      }
+
+      // Menampilkan total nominal dari data yang difilter (jika ada elemennya)
+      const totalElementHalamanIni = document.getElementById("total-kebutuhan-bulanan-belom");
+       if (totalElementHalamanIni) {
+        totalElementHalamanIni.textContent = `Total: ${formatRupiah(totalNominalHalamanIni)}`;
+      }
+
+      // Hitung dan simpan total semua yang berstatus "Belom" ke localStorage
+      hitungTotalBelum(kebutuhanBulanan);
+
+    } else {
+       // Jika tidak ada data, pastikan total juga 0 (tbody sudah dikosongkan di atas)
+      const totalElementHalamanIni = document.getElementById("total-kebutuhan-bulanan-belom");
+       if (totalElementHalamanIni) {
+        totalElementHalamanIni.textContent = `Total: ${formatRupiah(0)}`;
+      }
+      // Pastikan total di localStorage juga 0 jika tidak ada data
+      localStorage.setItem("belumKebutuhanBulanan", "0");
+    }
+  }
+
+  function konfirmasiHapus(itemToDelete) {
+    const inputSandi = prompt("Masukkan sandi untuk menghapus data ini:");
+    if (inputSandi === sandiHapus) {
+      hapusKebutuhan(itemToDelete);
+    } else if (inputSandi !== null) {
+      alert("Sandi salah. Data tidak dihapus.");
+    }
+  }
+
+   function hapusKebutuhan(itemToDelete) {
+    const storedKebutuhan = localStorage.getItem("kebutuhanBulanan");
+    if (storedKebutuhan) {
+      let kebutuhanBulanan = JSON.parse(storedKebutuhan);
+      // Filter array untuk mengeluarkan item yang akan dihapus
+      kebutuhanBulanan = kebutuhanBulanan.filter(item => !(
+        item.id === itemToDelete.id &&
+        item.nama === itemToDelete.nama &&
+        item.status === itemToDelete.status &&
+        item.nominal == itemToDelete.nominal
+      ));
+      localStorage.setItem("kebutuhanBulanan", JSON.stringify(kebutuhanBulanan));
+      // Panggil tampilkanKebutuhan lagi untuk refresh tampilan DENGAN FILTER
+      tampilkanKebutuhan();
+    }
+  }
+
+  function editKebutuhan(itemToEdit) {
+    // Redirect ke halaman entri
+     window.location.href = `Entri Kebutuhan Bulanan.html?edit=true&id=${encodeURIComponent(itemToEdit.id)}&nama=${encodeURIComponent(itemToEdit.nama)}&status=${encodeURIComponent(itemToEdit.status)}&nominal=${encodeURIComponent(itemToEdit.nominal)}`;
+  }
+
+  // Panggil fungsi tampilkanKebutuhan saat halaman dimuat dan setiap kali ada perubahan di localStorage
+  window.addEventListener('load', tampilkanKebutuhan);
+   // Memantau perubahan di tab lain
+  window.addEventListener('storage', (event) => {
+      if (event.key === 'kebutuhanBulanan') {
+          tampilkanKebutuhan();
+      }
+  });
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+  // Fungsi untuk menampilkan nilai dari localStorage ke elemen HTML (sudahKebutuhanBulanan)
+  function tampilkanTotalSudahDariLocalStorage() {
+    const totalSudah = localStorage.getItem("sudahKebutuhanBulanan");
+    const spanTotalSudah = document.getElementById("entri-sudah-kebutuhan-bulanan");
+    if (spanTotalSudah) {
+      spanTotalSudah.textContent = totalSudah ? formatRupiah(totalSudah) : formatRupiah(0);
+    }
+  }
+  // Panggil fungsi saat halaman dimuat
+  window.addEventListener('load', tampilkanTotalSudahDariLocalStorage);
+  // Tambahkan event listener untuk memantau perubahan di localStorage
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'sudahKebutuhanBulanan') {
+      tampilkanTotalSudahDariLocalStorage(); // Perbarui tampilan jika nilai sudahKebutuhanBulanan berubah
+    }
+  });
+  
+  
+  
+  
+  
+  // Fungsi untuk menampilkan nilai dari localStorage ke elemen HTML (belumKebutuhanBulanan)
+  function tampilkanTotalBelumDiHalaman() {
+   const totalBelum = localStorage.getItem("belumKebutuhanBulanan");
+   const elemenTotalBelum = document.getElementById("entri-belom-kebutuhan-bulanan");
+   if (elemenTotalBelum) {
+     elemenTotalBelum.textContent = formatRupiah(totalBelum); // Gunakan fungsi formatRupiah agar tampilannya sesuai
+   }
+  }
+  // Panggil fungsi ini saat halaman dimuat
+  window.addEventListener('load', tampilkanTotalBelumDiHalaman);
+  // Tambahkan event listener untuk memantau perubahan di localStorage
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'belumKebutuhanBulanan') {
+     tampilkanTotalBelumDiHalaman();
+    }
+  });
+
+</script>
+
+
+
+
+
+
+</html>
+
+
