@@ -271,9 +271,9 @@
   <div class="TOTAL">
    <div class="kotak">
     <h3>Gaji</h3>
-    <span id="gaji-kebutuhan-bulanan">Rp. 4.550.000,-</span>
+    <span id="gaji-kebutuhan-bulanan">0</span>
     <h3>Total Kebutuhan</h3>
-    <span id="total-kebutuhan-bulanan">Rp. 4.252.800,-</span>
+    <span id="total-kebutuhan-bulanan">0</span>
    </div>
    
    <div class="bundar">
@@ -282,9 +282,15 @@
     <h3>Entri Belom</h3>
     <span id="entri-belom-kebutuhan-bulanan">0</span>
     <h3>Sisa = Uang Pribadi</h3>
-    <span id="sisa-kebutuhan-bulanan">Rp. 297.200,-</span>
+    <span id="sisa-kebutuhan-bulanan">0</span>
    </div>
   </div>
+  
+  
+  
+  
+  
+  
   
   
   <div class="container">
@@ -620,6 +626,80 @@
      tampilkanTotalBelumDiHalaman();
     }
   });
+
+
+
+
+
+
+
+// Fungsi untuk memformat angka menjadi format mata uang Rupiah
+function formatRupiah(angka) {
+  if (isNaN(angka)) {
+    return "Rp. 0,-"; // Mengembalikan "Rp. 0,-" jika bukan angka
+  }
+  const rupiah = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0 // Tidak menampilkan desimal
+  }).format(angka);
+
+  // Menghilangkan ".00" jika ada (terkadang NumberFormat menambahkan itu untuk IDR)
+  let formattedRupiah = rupiah.replace(",00", "");
+
+  // Mengganti "Rp" dengan "Rp." dan menambahkan ",=" di akhir
+  formattedRupiah = formattedRupiah.replace("Rp", "Rp.");
+  return formattedRupiah + ",-";
+}
+
+// Fungsi untuk memuat dan menampilkan data gaji dari localStorage
+function tampilkanGaji() {
+  const dataGajiString = localStorage.getItem('simpanGaji');
+
+  if (dataGajiString) {
+    const dataGaji = JSON.parse(dataGajiString);
+
+    // Ambil elemen span tempat data akan ditampilkan
+    const gajiDisplayElement = document.getElementById('gaji-kebutuhan-bulanan');
+    const totalKebutuhanDisplayElement = document.getElementById('total-kebutuhan-bulanan');
+    const sisaKebutuhanDisplayElement = document.getElementById('sisa-kebutuhan-bulanan');
+
+    // Pastikan elemen display ada sebelum mencoba memperbarui textContent
+    if (gajiDisplayElement) {
+      gajiDisplayElement.textContent = formatRupiah(dataGaji.gajiBulanan);
+    } else {
+      console.warn("Elemen dengan ID 'gaji-kebutuhan-bulanan' tidak ditemukan di halaman tampilan.");
+    }
+
+    if (totalKebutuhanDisplayElement) {
+      totalKebutuhanDisplayElement.textContent = formatRupiah(dataGaji.totalKebutuhan);
+    } else {
+      console.warn("Elemen dengan ID 'total-kebutuhan-bulanan' tidak ditemukan di halaman tampilan.");
+    }
+
+    if (sisaKebutuhanDisplayElement) {
+      sisaKebutuhanDisplayElement.textContent = formatRupiah(dataGaji.sisaKebutuhan);
+    } else {
+      console.warn("Elemen dengan ID 'sisa-kebutuhan-bulanan' tidak ditemukan di halaman tampilan.");
+    }
+
+  } else {
+    // Jika tidak ada data tersimpan, tampilkan Rp. 0,-
+    const gajiDisplayElement = document.getElementById('gaji-kebutuhan-bulanan');
+    const totalKebutuhanDisplayElement = document.getElementById('total-kebutuhan-bulanan');
+    const sisaKebutuhanDisplayElement = document.getElementById('sisa-kebutuhan-bulanan');
+
+    if (gajiDisplayElement) gajiDisplayElement.textContent = "Rp. 0,-";
+    if (totalKebutuhanDisplayElement) totalKebutuhanDisplayElement.textContent = "Rp. 0,-";
+    if (sisaKebutuhanDisplayElement) sisaKebutuhanDisplayElement.textContent = "Rp. 0,-";
+
+    console.log("Tidak ada data gaji yang tersimpan di localStorage.");
+  }
+}
+
+// Panggil fungsi tampilkanGaji saat DOM selesai dimuat
+// Ini memastikan data ditampilkan segera setelah halaman dimuat
+document.addEventListener('DOMContentLoaded', tampilkanGaji);
 
 </script>
 

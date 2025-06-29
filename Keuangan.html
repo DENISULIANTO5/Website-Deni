@@ -13,12 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
-
-
-
-
-
-
 <style>
  
  *{
@@ -200,13 +194,6 @@ body {
  
 </style>
 
-
-
-
-
-
-
-
 <body>
   <div class="main">
     
@@ -236,6 +223,7 @@ body {
   
 
  <div class="container">
+  <a href="hijau.html" style="text-decoration:none">
   <div class="RINCIAN">
    <center><span id="total-uang-hijau">0</span></center>
     <h4>Uang Tabungan Harian (ANIS) =</h4>
@@ -246,33 +234,35 @@ body {
     <span id="rencana-pengeluaran-bulanan">0</span>
     <h3>Uang Untung =</h3>
     <span id="uang-untung">0</span>
+    <h3>Uang Pengeluaran</h3>
+    <span id="sisa-target">0</span>
   </div>
+  </a>
   
+  <a href="merah.html" style="text-decoration:none">
   <div class="MINUS">
    <center><span id="total-uang-merah">Rp. 0.000.000,-</span></center>
     <h4>Modal Kebutuhan =</h4>
     <span id="total-nominal-dipinjam">0</span>
-    
     <h3>Kebutuhan =</h3>
     <span id="total-pinjam-minus-kebutuhan">0</span>
-    
     <h3>Minus Anis =</h3>
     <span id="total-pinjam-anis">0</span>
-    
     <h3>Minus Deni =</h3>
     <span id="total-pinjam-deni">0</span>
-    
     <h3>Uang Listrik DENI =</h3>
     <span id="uang-listrik-deni">0</span>
-    
   </div>
+  </a>
  </div>
  
  
  
  
  
-<!--class RINCIAN-->
+ 
+ 
+ 
 <script>
  
 //Kode JS id="total-nominal"//
@@ -294,12 +284,6 @@ body {
       }).format(total) + ',-';
       totalNominalSpan.textContent = formattedTotal;
     }
-
-
-
-
-
-
 
 
 //Kode JS id="belumKebutuhanBulanan"//
@@ -337,12 +321,6 @@ body {
  
 </script>
 
-
-
-
-
-
-<!--class MINUS-->
 <script>
 //Kode JS id="total-nominal-dipinjam"//
     let modalKebutuhan = localStorage.getItem('modalKebutuhan') ? JSON.parse(localStorage.getItem('modalKebutuhan')) : [];
@@ -374,13 +352,6 @@ body {
     }
 
 
-
-
-
-
-
-
-
 //Kode JS id="total-pinjam-minus-kebutuhan"//
     function tampilkanTotalPinjamanDiKebutuhan() {
       const dataMinusKebutuhan = localStorage.getItem('Minus Kebutuhan');
@@ -405,30 +376,11 @@ body {
       }
     }
 
-    function formatRupiah(angka) {
-      if (angka == null || isNaN(Number(angka))) {
-        return 'Rp. 0,-';
-      }
-      const numberString = Number(angka).toString();
-      const splitNumber = numberString.split('').reverse();
-      const formattedNumber = [];
-      for (let i = 0; i < splitNumber.length; i++) {
-        formattedNumber.push(splitNumber[i]);
-        if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
-          formattedNumber.push('.');
-        }
-      }
-      return `Rp. ${formattedNumber.reverse().join('')},-`;
-    }
+    /* Fungsi formatRupiah sudah ada di atas, jangan diduplikasi */
     
     
     document.addEventListener('DOMContentLoaded', tampilkanTotalPinjamanDiKebutuhan);
     window.addEventListener('storage', tampilkanTotalPinjamanDiKebutuhan);
-
-
-
-
-
 
 
 //Kode JS id="total-pinjam-anis"//
@@ -451,21 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  function formatRupiah(angka) {
-    if (angka == null || isNaN(Number(angka))) {
-      return 'Rp. 0,-';
-    }
-    const numberString = Number(angka).toString();
-    const splitNumber = numberString.split('').reverse();
-    const formattedNumber = [];
-    for (let i = 0; i < splitNumber.length; i++) {
-      formattedNumber.push(splitNumber[i]);
-      if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
-        formattedNumber.push('.');
-      }
-    }
-    return `Rp. ${formattedNumber.reverse().join('')},-`;
-  }
+  /* Fungsi formatRupiah sudah ada di atas, jangan diduplikasi */
 
   // Panggil fungsi untuk pertama kali saat halaman dimuat
   perbaruiTotalPinjamAnis();
@@ -475,28 +413,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-
-
-
-
-
 //Kode JS id="total-pinjam-deni"//
-    function formatRupiah(angka) {
-      if (angka == null || isNaN(Number(angka))) {
-        return 'Rp. 0,-';
-      }
-      const numberString = Number(angka).toString();
-      const splitNumber = numberString.split('').reverse();
-      const formattedNumber = [];
-      for (let i = 0; i < splitNumber.length; i++) {
-        formattedNumber.push(splitNumber[i]);
-        if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
-          formattedNumber.push('.');
-        }
-      }
-      return `Rp. ${formattedNumber.reverse().join('')},-`;
-    }
+    /* Fungsi formatRupiah sudah ada di atas, jangan diduplikasi */
 
     function tampilkanTotalPinjamDeni() {
       const totalPinjamElement = document.getElementById('total-pinjam-deni');
@@ -522,31 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('storage', tampilkanTotalPinjamDeni);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function formatRupiah(angka) {
-  const numberFormat = new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
-    minimumFractionDigits: 2, // Pastikan selalu ada dua digit desimal
-    maximumFractionDigits: 2,
-  });
-  return numberFormat.format(angka).replace('Rp', 'Rp. ').replace(',00', ',-');
-}
+/* Fungsi formatRupiah sudah ada di atas, jangan diduplikasi */
 
 function tampilkanSaldoLain() {
   const rencanaPengeluaranSpan = document.getElementById('rencana-pengeluaran-bulanan');
@@ -578,11 +472,6 @@ setInterval(updateWaktu, 1000);
 updateWaktu();
 
 
-
-
-
-
-
 function formatRupiahCustom(amount) {
   const formatted = new Intl.NumberFormat('id-ID', {
     currency: 'IDR',
@@ -610,10 +499,7 @@ function tampilkanTotalUangCash() {
 // Panggil fungsi ini saat halaman dimuat agar nilai total uang cash ditampilkan
 tampilkanTotalUangCash();
 
-
-
-  </script>
-
+</script>
 
 <script>
   const totalNominalElement = document.getElementById('total-nominal');
@@ -622,14 +508,7 @@ tampilkanTotalUangCash();
   const uangUntungElement = document.getElementById('uang-untung');
   const totalUangHijauElement = document.getElementById('total-uang-hijau');
 
-  function formatRupiah(angka) {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(angka).replace('Rp', 'Rp. ').replace(',00', ',-');
-  }
+  /* Fungsi formatRupiah sudah ada di atas, jangan diduplikasi */
 
   function formatRupiahCustom(amount) {
     return new Intl.NumberFormat('id-ID', {
@@ -646,8 +525,17 @@ tampilkanTotalUangCash();
     const entriBelomKebutuhan = parseFloat(entriBelomKebutuhanText) || 0;
     const hargaDua = parseFloat(rencanaPengeluaranBulananElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '')) || 0;
     const ongkir = parseFloat(uangUntungElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '')) || 0;
-    const total = harga1 + entriBelomKebutuhan + hargaDua + ongkir;
+    
+    // **MODIFIKASI START**
+    // Mengambil nilai dari id="sisa-target"
+    const sisaTargetElement = document.getElementById('sisa-target');
+    const sisaTargetText = sisaTargetElement ? sisaTargetElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '') : '0';
+    const sisaTarget = parseFloat(sisaTargetText) || 0;
+    // **MODIFIKASI END**
+
+    const total = harga1 + entriBelomKebutuhan + hargaDua + ongkir + sisaTarget; // Menambahkan sisaTarget ke total
     totalUangHijauElement.textContent = formatRupiah(total);
+    perbaruiTotalUangPribadi(); // Panggil setelah memperbarui nilai total-uang-hijau
   }
 
   function tampilkanTotalNominalDariStorage() {
@@ -693,10 +581,27 @@ tampilkanTotalUangCash();
     hitungTotal(); // Hitung total setelah nilai-nilai ini ditampilkan
   }
 
+  // Fungsi untuk menampilkan sisa target dari halaman pengeluaran
+  function tampilkanSisaTargetPengeluaran() {
+    const sisaTargetElementKeuangan = document.getElementById('sisa-target');
+    const sisaTargetDariPengeluaran = localStorage.getItem('sisa-target-pengeluaran');
+
+    if (sisaTargetElementKeuangan) {
+      if (sisaTargetDariPengeluaran !== null) {
+        sisaTargetElementKeuangan.textContent = formatRupiah(parseFloat(sisaTargetDariPengeluaran));
+      } else {
+        sisaTargetElementKeuangan.textContent = formatRupiah(0); // Tampilkan 0 atau nilai default jika tidak ada data
+      }
+      hitungTotal(); // Panggil hitungTotal setelah memperbarui sisa-target
+    }
+  }
+
+
   window.addEventListener('load', () => {
     tampilkanTotalNominalDariStorage(); // Tampilkan total nominal dari dataTabungan
     tampilkanTotalBelumDiHalaman();
     tampilkanSaldoLain();
+    tampilkanSisaTargetPengeluaran(); 
   });
 
   window.addEventListener('storage', (event) => {
@@ -709,15 +614,11 @@ tampilkanTotalUangCash();
     if (event.key === 'rencana-pengeluaran-bulanan' || event.key === 'uang-untung') {
       tampilkanSaldoLain();
     }
+    if (event.key === 'sisa-target-pengeluaran') { 
+      tampilkanSisaTargetPengeluaran();
+    }
   });
 </script>
-
-
-
-
-
-
-
 
 <script>
    const totalNominalDipinjamElement = document.getElementById('total-nominal-dipinjam');
@@ -727,14 +628,7 @@ tampilkanTotalUangCash();
   const uangListrikDeniElement = document.getElementById('uang-listrik-deni');
   const totalUangMerahElement = document.getElementById('total-uang-merah');
 
-  function formatRupiah(angka) {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(angka).replace('Rp', 'Rp. ').replace(',00', ',-');
-  }
+  /* Fungsi formatRupiah sudah ada di atas, jangan diduplikasi */
 
   function getNumericValue(element) {
     return parseFloat(element.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '')) || 0;
@@ -850,9 +744,6 @@ tampilkanTotalUangCash();
 
 </script>
 
-
-
-
 <script>
  function perbaruiTotalUangPribadi() {
   const totalUangCashElement = document.getElementById('total-uang-cash');
@@ -953,7 +844,11 @@ function hitungTotal() {
     const entriBelomKebutuhan = parseFloat(entriBelomKebutuhanText) || 0;
     const hargaDua = parseFloat(rencanaPengeluaranBulananElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '')) || 0;
     const ongkir = parseFloat(uangUntungElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '')) || 0;
-    const total = harga1 + entriBelomKebutuhan + hargaDua + ongkir;
+    const sisaTargetElement = document.getElementById('sisa-target');
+    const sisaTargetText = sisaTargetElement ? sisaTargetElement.textContent.replace(/Rp\.?\s?|-/g, '').replace(/\./g, '').replace(/,00$/, '') : '0';
+    const sisaTarget = parseFloat(sisaTargetText) || 0;
+
+    const total = harga1 + entriBelomKebutuhan + hargaDua + ongkir + sisaTarget;
     totalUangHijauElement.textContent = formatRupiah(total);
     perbaruiTotalUangPribadi(); // Panggil setelah memperbarui nilai total-uang-hijau
   }
@@ -961,11 +856,6 @@ function hitungTotal() {
 
 // Pastikan Anda memanggil perbaruiTotalUangPribadi() di setiap fungsi
 // yang memanipulasi nilai dari elemen total-uang-cash, total-uang-merah, atau total-uang-hijau.
-
 </script>
-
-
-
-
 
 </html>

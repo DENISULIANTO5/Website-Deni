@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href=".css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<style>
+  *{
+    background: #000;
+  }
+
+  .main{
+    background: #000;
+    display: flex;
+    height: 90px;
+    width : 100%;
+    box-shadow: 0 0 50px #0133e3;
+    position: relative;
+  }
+
+  .main button{
+    background-color: hsla(0,0%,45.4%,0.549);
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 10px;
+    top: 25px;
+  }
+  .foto-profil{
+    background: #000;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+  }
+
+  .foto-profil a img{
+    height: 50px;
+    width: 50px;
+    background: #000;
+    text-decoration: none;
+  }
+
+  .main h1{
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .menu{
+    border: 1px solid #ccc;
+    margin-top:10px;
+    width: 310px;
+    height: auto; /* Changed to auto to accommodate new elements */
+    background: #000;
+    color:#fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 50px #9c0101;
+    margin-left: auto; /* Center the div */
+    margin-right: auto; /* Center the div */
+  }
+  .menu h4{
+    color: #fff;
+    font-size: 17px;
+    text-align: center;
+  }
+  .pilih p a{
+    width: 50px;
+    height: 20px;
+    color:#fff;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  /* Menghilangkan input dan hanya menyisakan tombol */
+  .satu input {
+    display: none;
+  }
+
+  .satu button {
+    height: 30px;
+    width: 100%;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <h1>
+      PENGELUARAN HARIAN
+    </h1>
+
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+    <div class="foto-profil">
+      <a href="Pengeluaran-Harian-Deni.html">
+        <img src="gambar profil.png"></img>
+      </a>
+    </div>
+  </div>
+
+  <div class="menu">
+    <h4>MENU :</h4>
+    <div class="pilih">
+      <p><a href="Pengeluaran-Harian-Deni.html">Entri Transaksi Harian</a></p>
+      <p><a href="Pengeluaran-Harian-Deni-Rincian.html">Rincian Pengeluaran</a></p>
+      <p><a href="Pemasukan-Harian-Deni.html">Rincian Pemasukan</a></p>
+    </div>
+
+    <hr style="border-color: #9c0101; margin: 15px 0;">
+
+    <div class="satu">
+      <button id="set-target-button">Atur Target</button>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  const localStorageTargetKey = 'Target-Pengeluaran-Deni';
+  const PASSWORD = "150205"; // Define the password
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const setTargetButton = document.getElementById('set-target-button');
+
+    setTargetButton.addEventListener('click', function() {
+      const enteredPassword = prompt("Masukkan password untuk mengatur target:");
+
+      if (enteredPassword === PASSWORD) {
+        const targetInput = prompt("Masukkan nominal target pengeluaran:"); // Prompt untuk input nominal
+
+        if (targetInput === null) { // Jika pengguna menekan 'Cancel'
+          alert('Pengaturan target dibatalkan.');
+          return;
+        }
+
+        const targetValue = parseFloat(targetInput);
+
+        if (!isNaN(targetValue) && targetValue >= 0) {
+          localStorage.setItem(localStorageTargetKey, targetValue);
+          alert('Target pengeluaran berhasil diatur menjadi Rp. ' + targetValue.toLocaleString('id-ID') + ',-');
+
+          // Dispatch a storage event to notify other open tabs (like the entry page)
+          window.dispatchEvent(new Event('storage'));
+
+        } else {
+          alert('Harap masukkan angka yang valid untuk target pengeluaran (tidak boleh negatif)!');
+        }
+      } else {
+        alert('Password salah! Target pengeluaran tidak dapat diatur.');
+      }
+    });
+  });
+</script>
+
+</html>

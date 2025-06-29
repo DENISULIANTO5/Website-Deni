@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -7,151 +7,201 @@
 
   <title>Website DENI SULIANTO</title>
 
-  <link href=".css" rel="stylesheet" type="text/css" />
-
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    /* CSS Anda yang sudah ada */
+    * {
+      background: #000;
+      font-family: sans-serif; /* Menambahkan font default */
+    }
+
+    .main {
+      background: #000;
+      display: flex;
+      height: 90px;
+      width: 100%;
+      box-shadow: 0 0 50px #0133e3;
+      position: relative;
+      align-items: center; /* Memastikan konten vertikal di tengah */
+      justify-content: center; /* Memastikan konten horizontal di tengah (judul) */
+    }
+
+    .main button {
+      background-color: hsla(0, 0%, 45.4%, 0.549);
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 10%;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      left: 10px;
+      top: 25px; /* Sesuaikan posisi jika perlu */
+      border: none; /* Menghilangkan border default */
+      color: white; /* Warna ikon/teks button */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .foto-profil {
+      background: #000;
+      position: absolute;
+      right: 10px;
+      top: 20px; /* Sesuaikan posisi jika perlu */
+    }
+
+    .foto-profil a img {
+      height: 50px;
+      width: 50px;
+      background: #000;
+      text-decoration: none;
+      border-radius: 50%; /* Membuat gambar profil bundar */
+    }
+
+    .main h1 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0; /* Menghilangkan margin default h1 */
+    }
+
+    .menu {
+      border: 1px solid #ccc;
+      margin: 10px auto; /* Memberi margin atas dan tengah secara horizontal */
+      width: 310px;
+      height: auto; /* Ubah ke auto agar menyesuaikan konten */
+      background: #000;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      box-shadow: 0px 0px 50px #026f29;
+    }
+
+    .menu h4 {
+      color: #fff;
+      font-size: 17px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .pilih p a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px; /* Sedikit lebih besar dari 12px */
+      display: block;
+      padding: 8px 0;
+      transition: color 0.2s ease;
+    }
+
+    .pilih p a:hover {
+      color: #0133e3; /* Efek hover */
+    }
+
+  /* Menghilangkan input dan hanya menyisakan tombol */
+  .satu input {
+    display: none;
+  }
+
+  .satu button {
+    height: 30px;
+    width: 100%;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  </style>
 </head>
-
-
-
-
-
-
-
-<style>
- 
- *{
-  background: #000;
-}
-
-.main{
-  background: #000;
-  display: flex;
-  height: 90px;
-  width : 100%;
-  box-shadow: 0 0 50px #0133e3;
-  position: relative;
-}
-
-.main button{
-  background-color: hsla(0,0%,45.4%,0.549);
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 10%;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  left: 10px;
-  top: 25px;
-}
-.foto-profil{
-  background: #000;
-  position: absolute;
-  right: 10px;
-  top: 20px;
-}
-
-.foto-profil a img{
-  height: 50px;
-  width: 50px;
-  background: #000;
-  text-decoration: none;
-}
-
-.main h1{
-  color: #fff;
-  position: absolute;
-  text-align: center;
-  top: 20px;
-  width: 100%;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-
-
-
-
-.menu{
- border: 1px solid #ccc;
-  margin-top:10px;
-  width: 310px
-  height: 370px;
-  background: #000;
-  color:#fff;
-  border-radius: 10px;
-  padding: 10px 20px;
-  box-shadow: 0px 0px 50px #026f29
-}
-.menu h4{
-  color: #fff;
-  font-size: 17px;
-  text-align: center;
-}
-.pilih p a{
-  width: 50px;
-  height: 20px;
-  color:#fff;
-  text-decoration: none;
-  font-size: 12px;
-}
-.satu p{
-  color: #fff;
-  font-size: 50px;
-  font-weight: bold;
-}
-.satu input{
-  margin-left:10px;
-  
-  width:200px;
-  height: 25px;
-  background: transparent;
-  border: none;
-  outline:none;
-  border: 3px solid #221f1fbe;
-  border-radius: 40px;
-  padding: 10px 10px 10px 10px;
-  color:#fff;
-}
- 
-</style>
-
-
-
-
-
 
 <body>
   <div class="main">
-
-    <h1>
-      KEBUTUHAN BULANAN
-    </h1>
-
+    <h1>KEBUTUHAN BULANAN</h1>
     <a href="Index.html">
-      <button class="button ph ph-list"></button>
-    </a>
-
+      <button class="button">☰</button> </a>
     <div class="foto-profil">
-      <a href="">
-        <img src="gambar profil.png"></img>
+      <a href="#">
+        <img src="gambar profil.png" alt="Gambar Profil">
       </a>
     </div>
   </div>
-  
-  
-  
-  <div class = "menu">
-    <form action="">
-      <h4>MENU :</h4>
-      <div class="pilih">
-        <p><a href="Entri Kebutuhan Bulanan.html">Entri Kebutuhan Bulanan</a></p>
-        <p><a href="Belum Kebutuhan Bulanan.html">Belom Kebutuhan Bulanan</a></p>
-        <p><a href="Sudah Kebutuhan Bulanan.html">Sudah Kebutuhan Bulanan</a></p>
-      </div>
-    </form>
+
+  <div class="menu">
+    <h4>MENU :</h4>
+    <div class="pilih">
+      <p><a href="index.html">Entri Kebutuhan Bulanan</a></p>
+      <p><a href="Belum Kebutuhan Bulanan.html">Belom Kebutuhan Bulanan</a></p>
+      <p><a href="Sudah Kebutuhan Bulanan.html">Sudah Kebutuhan Bulanan</a></p>
+    </div>
+
+ 
+    <hr style="border-color: #026f29; margin: 15px 0;">
+
+
+    <div class="satu">
+      <button onclick="simpanGaji()">Atur Gaji</button>
+    </div>
   </div>
+
+  <script>
+    // Fungsi untuk menyimpan data gaji ke localStorage
+    function simpanGaji() {
+      let gajiBulanan, totalKebutuhan;
+
+      // Mengambil input gaji melalui prompt
+      let inputGajiString = prompt("Masukkan Gaji Bulanan:");
+      if (inputGajiString === null) { // Jika pengguna menekan 'Cancel'
+        alert("Input gaji dibatalkan.");
+        return;
+      }
+      gajiBulanan = parseFloat(inputGajiString);
+
+      // Validasi input gaji
+      if (isNaN(gajiBulanan)) {
+        alert("Gaji Bulanan harus berupa angka yang valid.");
+        return;
+      }
+
+      // Mengambil input total kebutuhan melalui prompt
+      let inputTotalKebutuhanString = prompt("Masukkan Total Kebutuhan:");
+      if (inputTotalKebutuhanString === null) { // Jika pengguna menekan 'Cancel'
+        alert("Input total kebutuhan dibatalkan.");
+        return;
+      }
+      totalKebutuhan = parseFloat(inputTotalKebutuhanString);
+
+      // Validasi input total kebutuhan
+      if (isNaN(totalKebutuhan)) {
+        alert("Total Kebutuhan harus berupa angka yang valid.");
+        return;
+      }
+
+      // Hitung sisa kebutuhan
+      const sisaKebutuhan = gajiBulanan - totalKebutuhan;
+
+      // Create an object to store the data
+      const dataGaji = {
+        gajiBulanan: gajiBulanan,
+        totalKebutuhan: totalKebutuhan,
+        sisaKebutuhan: sisaKebutuhan
+      };
+
+      // Save the data to localStorage as a JSON string
+      localStorage.setItem('simpanGaji', JSON.stringify(dataGaji));
+
+      alert("Data gaji berhasil disimpan!");
+
+      // Arahkan ke halaman "Belum Kebutuhan Bulanan.html"
+      window.location.href = "Belum Kebutuhan Bulanan.html";
+    }
+  </script>
 </body>
+
 </html>

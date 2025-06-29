@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website DENI SULIANTO</title>
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<style>
+  * {
+    background: #000;
+  }
+
+  .main {
+    background: #000;
+    display: flex;
+    height: 90px;
+    width: 100%;
+    box-shadow: 0 0 50px #001efabe;
+    position: relative;
+  }
+
+  .main button {
+    background-color: hsla(0, 0%, 45.4%, 0.549);
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 10px;
+    top: 25px;
+  }
+
+  .foto-profil {
+    background: #000;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+  }
+
+  .foto-profil a img {
+    height: 50px;
+    width: 50px;
+    background: #000;
+    text-decoration: none;
+  }
+
+  .main h1 {
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .TOTAL {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    width: 310px;
+    height: auto; /* Changed to auto to accommodate new elements */
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 50px #9c0101;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .TOTAL h3 {
+    color: #fff;
+    font-size: 15px;
+    margin-top: 10px;
+    text-align: center; /* Centered text */
+  }
+
+  .TOTAL span {
+    margin-top: 5px;
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+  }
+
+  .TOTAL .info-row-1 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 8px;
+    color: #a4a4a474;
+  }
+
+  .TOTAL .info-row-1 span {
+    font-size: 8px;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 0;
+    color: #a4a4a474;
+  }
+
+  .TOTAL .info-row-1 .value {
+    text-align: right;
+  }
+
+  .TOTAL .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 8px;
+  }
+
+  .TOTAL .info-row span {
+    font-size: 8px;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 0;
+  }
+
+  .TOTAL .info-row .value {
+    text-align: right;
+  }
+
+
+  .menu {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    width: 310px;
+    height: auto;
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 50px #9c0101;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container p {
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 7px;
+  }
+
+  .container input {
+    margin-left: 20px;
+    width: 260px;
+    height: 15px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 3px solid #221f1fbe;
+    border-radius: 40px;
+    padding: 10px 10px 10px 10px;
+    color: #fff;
+    font-size: 7px;
+  }
+
+  .container select {
+    margin-left: 20px;
+    width: 286.5px;
+    height: 42.5px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 3px solid #221f1fbe;
+    border-radius: 40px;
+    padding: 10px 10px 10px 10px;
+    color: #fff;
+    font-size: 7px;
+  }
+
+  .container .submit {
+    height: 30px;
+    width: 100%;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .Reset .reset {
+    color: #fff;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <h1>
+      PENGELUARAN HARIAN
+    </h1>
+
+    <a href="Index.html">
+      <button class="button ph ph-list"></button>
+    </a>
+
+    <div class="foto-profil">
+      <a href="Menu-Pilihan-Pengeluaran-Harian.html">
+        <img src="gambar profil.png" alt="Profile Picture">
+      </a>
+    </div>
+  </div>
+
+  <div class="TOTAL">
+    <h3>Total Pengeluaran Harian</h3>
+    <span id="total-pengeluaran-harian-deni">0</span>
+    <hr style="border-color: #9c0101; margin: 10px 0;">
+    <div class="info-row-1">
+      <span>Target Pengeluaran:</span>
+      <span id="target-pengeluaran">Rp. 0,-</span>
+    </div>
+    <div class="info-row">
+      <span>Sisa Target:</span>
+      <span id="sisa-target">Rp. 0,-</span>
+    </div>
+  </div>
+
+  <div class="menu">
+    <div class="container">
+      <p><label for="jenis-transaksi">Jenis Transaksi</label></p>
+      <select id="jenis-transaksi">
+        <option value="">Pilih Jenis Transaksi</option>
+        <option value="Pengeluaran-Yasmine">Pengeluaran Yasmine</option>
+        <option value="Pengeluaran-Deni">Pengeluaran Deni</option>
+      </select>
+
+      <p><label for="nama-transaksi">Nama</label></p>
+      <input type="text" id="nama-transaksi">
+
+      <p><label for="tanggal">Tanggal</label></p>
+      <input type="date" id="tanggal"><br>
+
+      <p><label for="nominal">Nominal</label></p>
+      <input type="number" id="nominal">
+
+      <button class="submit" id="simpanButton">
+        SUBMIT</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  let indeksEdit = null;
+  const localStorageKey = 'Pengeluaran-Harian Deni';
+  const localStorageTargetKey = 'Target-Pengeluaran-Deni'; // New key for target
+
+  function populateForm(data) {
+    document.getElementById('nama-transaksi').value = data.nama;
+    document.getElementById('tanggal').value = data.tanggal;
+    document.getElementById('jenis-transaksi').value = data.jenisTransaksi;
+    document.getElementById('nominal').value = data.nominal;
+  }
+
+  function tambahData() {
+    const nama = document.getElementById('nama-transaksi').value;
+    const tanggal = document.getElementById('tanggal').value;
+    const jenisTransaksi = document.getElementById('jenis-transaksi').value;
+    const nominal = parseFloat(document.getElementById('nominal').value);
+
+    if (nama && tanggal && jenisTransaksi && !isNaN(nominal) && nominal > 0) {
+      const dataPengeluaranHarianDeni = localStorage.getItem(localStorageKey);
+      let transaksi = dataPengeluaranHarianDeni ? JSON.parse(dataPengeluaranHarianDeni) : [];
+
+      if (indeksEdit !== null) {
+        // Update existing transaction
+        transaksi[indeksEdit] = {
+          nama: nama,
+          tanggal: tanggal,
+          jenisTransaksi: jenisTransaksi,
+          nominal: nominal
+        };
+        indeksEdit = null; // Reset edit index
+      } else {
+        // Add new transaction
+        transaksi.push({
+          nama: nama,
+          tanggal: tanggal,
+          jenisTransaksi: jenisTransaksi,
+          nominal: nominal
+        });
+      }
+
+      localStorage.setItem(localStorageKey, JSON.stringify(transaksi));
+
+      // Clear the form
+      document.getElementById('nama-transaksi').value = '';
+      document.getElementById('tanggal').value = '';
+      document.getElementById('jenis-transaksi').value = ''; // Reset select to default option
+      document.getElementById('nominal').value = '';
+
+      // Update the total and remaining target display
+      perbaruiTotalPengeluaranHarianDeni();
+
+      // Redirect based on transaction type
+      if (jenisTransaksi === 'Pengeluaran-Yasmine') {
+        window.location.href = 'Pengeluaran-Harian-Deni-Rincian.html';
+      } else if (jenisTransaksi === 'Pengeluaran-Deni') {
+        window.location.href = 'Pemasukan-Harian-Deni.html';
+      }
+
+    } else {
+      alert('Harap isi semua kolom dengan benar dan pastikan nominal lebih dari 0!');
+    }
+  }
+
+  function perbaruiTotalPengeluaranHarianDeni() {
+    const totalPengeluaranElement = document.getElementById('total-pengeluaran-harian-deni');
+    const targetPengeluaranElement = document.getElementById('target-pengeluaran');
+    const sisaTargetElement = document.getElementById('sisa-target');
+
+    let totalPengeluaran = 0;
+    const dataPengeluaranHarianDeni = localStorage.getItem(localStorageKey);
+    if (dataPengeluaranHarianDeni) {
+      const transaksi = JSON.parse(dataPengeluaranHarianDeni);
+      transaksi.forEach(item => {
+        if (item.jenisTransaksi === 'Pengeluaran-Yasmine' || item.jenisTransaksi === 'Pengeluaran-Deni') {
+          totalPengeluaran += item.nominal;
+        }
+      });
+    }
+
+    let targetPengeluaran = parseFloat(localStorage.getItem(localStorageTargetKey)) || 0; // Get target from localStorage
+
+    let sisaTarget = targetPengeluaran - totalPengeluaran;
+
+    if (totalPengeluaranElement) {
+      totalPengeluaranElement.textContent = formatRupiah(totalPengeluaran);
+    }
+    if (targetPengeluaranElement) {
+      targetPengeluaranElement.textContent = formatRupiah(targetPengeluaran);
+    }
+    if (sisaTargetElement) {
+      sisaTargetElement.textContent = formatRupiah(sisaTarget);
+      // **MODIFIKASI: Simpan sisaTarget ke localStorage**
+      localStorage.setItem('sisa-target-pengeluaran', sisaTarget);
+    }
+  }
+
+  function formatRupiah(angka) {
+    if (angka == null || isNaN(Number(angka))) {
+      return 'Rp. 0,-';
+    }
+    const numberString = Number(angka).toString();
+    const splitNumber = numberString.split('').reverse();
+    const formattedNumber = [];
+    for (let i = 0; i < splitNumber.length; i++) {
+      formattedNumber.push(splitNumber[i]);
+      if ((i + 1) % 3 === 0 && i !== splitNumber.length - 1) {
+        formattedNumber.push('.');
+      }
+    }
+    return `Rp. ${formattedNumber.reverse().join('')},-`;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    perbaruiTotalPengeluaranHarianDeni();
+    const urlParams = new URLSearchParams(window.location.search);
+    const isEdit = urlParams.get('edit');
+    const storedEditIndex = localStorage.getItem('editIndex');
+
+    if (isEdit === 'true' && storedEditIndex !== null) {
+      const dataPengeluaranHarianDeni = localStorage.getItem(localStorageKey);
+      if (dataPengeluaranHarianDeni) {
+        const transaksi = JSON.parse(dataPengeluaranHarianDeni);
+        const index = parseInt(storedEditIndex);
+        if (transaksi[index]) {
+          populateForm(transaksi[index]);
+          indeksEdit = index;
+        }
+      }
+      localStorage.removeItem('editIndex');
+    }
+  });
+
+  // Listen for changes in localStorage from other tabs/windows
+  window.addEventListener('storage', (event) => {
+    if (event.key === localStorageKey || event.key === localStorageTargetKey) {
+      perbaruiTotalPengeluaranHarianDeni();
+    }
+  });
+
+
+  document.getElementById('simpanButton').addEventListener('click', tambahData);
+</script>
+
+</html>
